@@ -86,6 +86,12 @@
       "style": "scss",
       "changeDetection": "OnPush",
       "displayBlock": true
+    },
+    "@ionic/angular-toolkit:component": {
+      "styleext": "scss"
+    },
+    "@ionic/angular-toolkit:page": {
+      "styleext": "scss"
     }
   },
   "defaultProject": "todo-web"
