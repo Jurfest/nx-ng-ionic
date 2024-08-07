@@ -2,7 +2,16 @@
   "name": "@nx-ng-ionic/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx serve",
+    "start:mobile": "nx run todo-mobile:serve ",
+    "build": "nx build",
+    "build:web-prod": "npx nx run todo-web:build --configuration=production",
+    "start:web-ssr:prod": "node dist/todo-web/server/server.mjs",
+    "test": "nx test",
+    "test:mobile": "npx nx run todo-mobile:test",
+    "test:all": "nx run-many --all --target=test --parallel -- --collectCoverage --coverage"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~18.1.0",
