@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
   displayName: 'todo-mobile',
-  preset: '../jest.preset.js',
+  preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../coverage/todo-mobile',
+  coverageDirectory: '../../coverage/apps/todo-mobile',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

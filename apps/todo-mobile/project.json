@@ -1,25 +1,25 @@
 {
   "name": "todo-mobile",
-  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "nx-ng-ionic",
-  "sourceRoot": "todo-mobile/src",
-  "tags": [],
+  "sourceRoot": "apps/todo-mobile/src",
+  "tags": ["domain:todo-mobile", "type:app"],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/todo-mobile",
-        "index": "todo-mobile/src/index.html",
-        "main": "todo-mobile/src/main.ts",
+        "outputPath": "dist/apps/todo-mobile",
+        "index": "apps/todo-mobile/src/index.html",
+        "main": "apps/todo-mobile/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "todo-mobile/tsconfig.app.json",
+        "tsConfig": "apps/todo-mobile/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           {
             "glob": "**/*",
-            "input": "todo-mobile/public"
+            "input": "apps/todo-mobile/public"
           },
           {
             "glob": "**/*.svg",
@@ -28,8 +28,8 @@
           }
         ],
         "styles": [
-          "todo-mobile/src/styles.scss",
-          "todo-mobile/src/theme/variables.scss"
+          "apps/todo-mobile/src/styles.scss",
+          "apps/todo-mobile/src/theme/variables.scss"
         ],
         "scripts": []
       },
