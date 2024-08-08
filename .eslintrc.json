@@ -15,6 +15,10 @@
               {
                 "sourceTag": "*",
                 "onlyDependOnLibsWithTags": ["*"]
+              },
+              {
+                "sourceTag": "domain:todo",
+                "onlyDependOnLibsWithTags": ["domain:todo", "domain:shared"]
               }
             ]
           }
