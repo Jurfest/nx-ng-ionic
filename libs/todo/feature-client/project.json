@@ -1,0 +1,36 @@
+{
+  "name": "todo-feature-client",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/todo/feature-client/src",
+  "prefix": "todo",
+  "projectType": "library",
+  "tags": ["domain:todo", "type:feature"],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/todo/feature-client/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/todo/feature-client/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/todo/feature-client/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/todo/feature-client/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
