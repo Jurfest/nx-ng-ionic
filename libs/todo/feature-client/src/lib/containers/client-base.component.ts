@@ -14,23 +14,23 @@ export class ClientBaseComponent implements OnInit {
 
   clientList$ = this.clientFacade.clientList$;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadClients();
   }
 
-  loadClients(): void {
+  protected loadClients(): void {
     this.clientFacade.loadClientList();
   }
 
-  addClient(client: Client) {
+  protected addClient(client: Client): void {
     this.clientFacade.addClient(client);
   }
 
-  editClient(client: Client) {
+  protected editClient(client: Client): void {
     this.clientFacade.updateClient(client);
   }
 
-  deleteClient(client: Client) {
+  protected deleteClient(client: Client): void {
     this.clientFacade.deleteClient(client.id);
   }
 }

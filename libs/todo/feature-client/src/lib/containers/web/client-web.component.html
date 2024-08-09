@@ -9,6 +9,7 @@
     <div class="">
       <button
         mat-flat-button
+        (click)="openDialog('create')"
         class="!bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 !text-white !font-semibold !shadow-md hover:bg-gradient-to-br"
       >
         Add New Client
@@ -63,7 +64,7 @@
           <td
             class="py-3 px-4 text-right text-sm text-gray-700 dark:text-gray-300"
           >
-            <components-web-button> Edit </components-web-button>
+            <components-web-button (click)="openDialog('update')"> Edit </components-web-button>
             <button
               mat-flat-button
               (click)="deleteClient(client)"
