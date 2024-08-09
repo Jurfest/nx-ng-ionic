@@ -12,9 +12,9 @@ export const CLIENT_ROUTES: Routes = [
       },
       {
         path: '',
-        title: 'Toon Galaxy | Home',
+        title: 'Task Connect | Clients',
         loadComponent: () =>
-          import('./client.component'),
+          import('./containers/web/client-web.component'),
       },
       {
         path: '**',
