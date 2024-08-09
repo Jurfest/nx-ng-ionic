@@ -1,11 +1,60 @@
-<h1>todo-client</h1>
+<div class="container mx-auto p-6 min-h-screen space-y-6">
+  <h1
+    class="text-4xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+  >
+    Clients
+  </h1>
 
-<div class="table">
-  @let clientList = (clientList$ | async);
-  @for (client of clientList; track client.id) {
-    <ul>
-      <li>{{ client.name }}</li>
-      <li>{{ client.role }}</li>
-    </ul>
-  }
+  <!-- Add Client Button -->
+  <div class="mt-6">
+    <components-web-button> Add New Client </components-web-button>
+  </div>
+
+  <!-- Clients List -->
+  <div class="bg-white shadow-md rounded-lg overflow-hidden">
+    <table class="min-w-full bg-white dark:bg-gray-800">
+      <thead class="bg-gray-100 dark:bg-gray-900">
+        <tr>
+          <th
+            class="py-2 px-4 text-left text-sm font-semibold text-gray-600 dark:text-gray-300"
+          >
+            Name
+          </th>
+          <th
+            class="py-2 px-4 text-left text-sm font-semibold text-gray-600 dark:text-gray-300"
+          >
+            Role
+          </th>
+          <th
+            class="py-2 px-4 text-left text-sm font-semibold text-gray-600 dark:text-gray-300"
+          >
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        @let clientList = (clientList$ | async); @for (client of clientList;
+        track client.id) {
+        <tr
+          class="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-300"
+        >
+          <td class="py-3 px-4 text-sm text-gray-700 dark:text-gray-300">
+            {{ client.name | titlecase }}
+          </td>
+          <td class="py-3 px-4 text-sm text-gray-700 dark:text-gray-300">
+            {{ client.role | titlecase }}
+          </td>
+          <td class="py-3 px-4 text-sm text-gray-700 dark:text-gray-300">
+            <button class="text-blue-500 dark:text-blue-400 hover:underline">
+              Edit
+            </button>
+            <button class="text-red-500 dark:text-red-400 hover:underline ml-2">
+              Delete
+            </button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 </div>
