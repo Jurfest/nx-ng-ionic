@@ -11,7 +11,19 @@ const apiUrl = 'http://localhost:3000';
 export class ClientDataService {
   private http = inject(HttpClient);
 
-  load(): Observable<Client[]> {
+  loadCLients(): Observable<Client[]> {
     return this.http.get<Client[]>(`${apiUrl}/clients`);
+  }
+
+  createClient(client: Client): Observable<Client> {
+    return this.http.post<Client>(`${apiUrl}/clients`, client);
+  }
+
+  updateClient(client: Client): Observable<Client> {
+    return this.http.put<Client>(`${apiUrl}/clients/${client.id}`, client);
+  }
+
+  deleteCLient(id: number): Observable<void> {
+    return this.http.delete<void>(`${apiUrl}/clients/${id}`);
   }
 }

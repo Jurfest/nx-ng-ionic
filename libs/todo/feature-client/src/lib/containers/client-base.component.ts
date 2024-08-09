@@ -19,18 +19,18 @@ export class ClientBaseComponent implements OnInit {
   }
 
   loadClients(): void {
-    this.clientFacade.load();
+    this.clientFacade.loadClientList();
   }
 
-  addClient() {
-    // TODO: - Add client
+  addClient(client: Client) {
+    this.clientFacade.addClient(client);
   }
 
   editClient(client: Client) {
-    // TODO: - Edit user
+    this.clientFacade.updateClient(client);
   }
 
   deleteClient(client: Client) {
-    // TODO: - Delete user
+    this.clientFacade.deleteClient(client.id);
   }
 }

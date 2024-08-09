@@ -11,6 +11,12 @@
       "name": "Thimbletack Pebble",
       "role": "client",
       "avatar": "gnome"
+    },
+    {
+      "id": 3,
+      "name": "Brynna Nimblespark",
+      "role": "client",
+      "avatar": "gnome"
     }
   ],
   "tasks": [
