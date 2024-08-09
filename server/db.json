@@ -2,15 +2,15 @@
   "clients": [
     {
       "id": 1,
-      "name": "Admin User",
+      "name": "Nicolas Flamel",
       "role": "admin",
-      "avatar": "Alchemist"
+      "avatar": "alchemist"
     },
     {
       "id": 2,
-      "name": "Regular Client",
+      "name": "Thimbletack Pebble",
       "role": "client",
-      "avatar": "Gnome"
+      "avatar": "gnome"
     }
   ],
   "tasks": [

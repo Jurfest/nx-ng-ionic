@@ -1,17 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title> Client Management </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="addUser()">
+        <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <nx-ng-ionic-explore-container name="Tab 1 page"></nx-ng-ionic-explore-container>
+  <ion-list>
+    @for (user of users; track user.id) {
+    <ion-item>
+      <ion-label>
+        <h2>{{ user.name }}</h2>
+        <p>{{ user.role | titlecase }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="editUser(user)">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-button>
+        <ion-button (click)="deleteUser(user)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    }
+  </ion-list>
 </ion-content>
