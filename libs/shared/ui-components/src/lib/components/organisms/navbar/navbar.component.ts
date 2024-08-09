@@ -31,11 +31,11 @@ export class NavbarComponent {
     startWith(new NavigationEnd(0, this.router.url, this.router.url)),
     map(() => {
       const segments = this.router.url.split('/');
-      return segments.includes('clients')
-        ? TabName.Clients
-        : segments.includes('tasks')
+      return segments.includes('tasks')
         ? TabName.Tasks
-        : TabName.About;
+        : segments.includes('about')
+        ? TabName.About
+        : TabName.Clients;
     })
   );
 

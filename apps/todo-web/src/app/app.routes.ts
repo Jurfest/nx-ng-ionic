@@ -17,6 +17,22 @@ export const appRoutes: Route[] = [
           ),
       },
       {
+        path: 'tasks',
+        // TODO: - Update route
+        loadChildren: () =>
+          import('@nx-ng-ionic/todo/feature-client').then(
+            (m) => m.CLIENT_ROUTES
+          ),
+      },
+      {
+        path: 'about',
+        // TODO: - Update route
+        loadChildren: () =>
+          import('@nx-ng-ionic/todo/feature-client').then(
+            (m) => m.CLIENT_ROUTES
+          ),
+      },
+      {
         path: '**',
         redirectTo: 'clients',
       },
