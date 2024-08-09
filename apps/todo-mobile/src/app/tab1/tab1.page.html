@@ -16,7 +16,7 @@
     <ion-item>
       <ion-label>
         <h2>{{ client.name }}</h2>
-        <p>{{ client.description| titlecase }}</p>
+        <p>{{ client.role| titlecase }}</p>
       </ion-label>
       <ion-buttons slot="end">
         <ion-button (click)="editClient(client)">

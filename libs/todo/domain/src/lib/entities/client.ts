@@ -1,5 +1,6 @@
 export interface Client {
   id: number;
   name: string;
-  description: string;
+  role: 'admin' | 'client';
+  avatar: string;
 }

@@ -4,9 +4,8 @@
   @let clientList = (clientList$ | async);
   @for (client of clientList; track client.id) {
     <ul>
-      <li>{{ client.id }}</li>
       <li>{{ client.name }}</li>
-      <li>{{ client.description }}</li>
+      <li>{{ client.role }}</li>
     </ul>
   }
 </div>
