@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
-    "start:mobile": "nx run todo-mobile:serve ",
+    "start:mobile": "nx run todo-mobile:serve",
+    "start:json-server": "json-server --watch ./server/db.json --port 3000",
     "build": "nx build",
     "build:web-prod": "npx nx run todo-web:build --configuration=production",
     "start:web-ssr:prod": "node dist/apps/todo-web/server/server.mjs",
@@ -89,6 +90,7 @@
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
     "jest-preset-angular": "~14.1.0",
+    "json-server": "^1.0.0-beta.1",
     "jsonc-eslint-parser": "^2.1.0",
     "ng-packagr": "~18.1.0",
     "nx": "19.5.6",

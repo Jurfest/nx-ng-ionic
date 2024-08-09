@@ -1,0 +1,45 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "name": "Admin User",
+      "role": "admin",
+      "avatar": "Alchemist"
+    },
+    {
+      "id": 2,
+      "name": "Regular Client",
+      "role": "client",
+      "avatar": "Gnome"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Implement login functionality",
+      "description": "Create login page and integrate with API.",
+      "creationDate": "2024-08-08T12:00:00Z",
+      "dueDate": "2024-08-15T12:00:00Z",
+      "status": "in-progress",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "title": "Design homepage layout",
+      "description": "Create a responsive homepage layout.",
+      "creationDate": "2024-08-05T09:00:00Z",
+      "dueDate": "2024-08-12T09:00:00Z",
+      "status": "pending",
+      "userId": 2
+    },
+    {
+      "id": 3,
+      "title": "Verify web SEO",
+      "description": "Improve SEO metrics.",
+      "creationDate": "2024-08-05T11:21:47Z",
+      "dueDate": "2024-08-12T11:21:47Z",
+      "status": "pending",
+      "userId": 2
+    }
+  ]
+}
