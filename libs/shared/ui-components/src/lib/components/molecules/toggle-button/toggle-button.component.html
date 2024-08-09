@@ -1,137 +1,115 @@
 @if (!isHandset()) {
-<!--
+  <!--
   NOTE: - commonAppShellNoRender custom structural directive prevents
   layout shift in Handset mode, but delays a little rendering in desktop mode.
   General performance score impact, nevertheless, is negletible in desktop but
   is much improved in mobile.
   -->
-<div
-  *commonAppShellNoRender
-  class="flex items-start m-auto w-[255px] h-[41px] border border-color-core-border rounded-xl"
->
-  <button
-    (click)="onToggle(TabName.Clients)"
-    matRipple
-    [matRippleColor]="'#D4D4D4'"
-    [ngClass]="{
-        'bg-color-neutral-foreground text-color-core-foreground hover:bg-gray-200 rounded-l-measure-radius-s transition-colors duration-300 ease-in-out':
+  <div
+    *commonAppShellNoRender
+    class="flex items-start m-auto w-[255px] h-[41px] border border-gray-300 dark:border-gray-600 rounded-xl"
+  >
+    <button
+      (click)="onToggle(TabName.Clients)"
+      matRipple
+      [matRippleColor]="'#D4D4D4'"
+      [ngClass]="{
+        'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-l-xl transition-colors duration-300 ease-in-out':
           activeTab() === TabName.Clients,
-        'text-color-neutral-content hover:bg-color-neutral-surface-lower':
+        'text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700':
           activeTab() !== TabName.Clients,
       }"
-    class="flex justify-center items-center px-4 py-1 gap-2 w-[99px] min-w-[80px] h-[39px] isolate text-sm font-semibold hover:rounded-l-xl"
-  >
-    <!-- <mat-icon
-      aria-hidden="false"
-      aria-label="home icon"
-      class="w-5 h-6 z-10 mr-[3px]"
-      fontIcon="home"
-    ></mat-icon> -->
-    <span class="my-auto leading-[100%] z-10 w-[39px] tracking-normal"
-      >Clients</span
+      class="flex justify-center items-center px-4 py-1 gap-2 w-[99px] min-w-[80px] h-[39px] text-sm font-semibold"
     >
-  </button>
-  <div class="border border-color-core-border h-[39px] self-stretch"></div>
-  <button
-    (click)="onToggle(TabName.Tasks)"
-    matRipple
-    [matRippleColor]="'#D4D4D4'"
-    [ngClass]="{
-        'bg-color-neutral-foreground text-color-core-foreground hover:bg-gray-200 rounded-r-measure-radius-s transition-colors duration-300 ease-in-out':
+      <span class="my-auto leading-[100%] z-10 w-[39px] tracking-normal"
+        >Clients</span
+      >
+    </button>
+    <div class="border border-gray-300 dark:border-gray-600 h-[39px] self-stretch"></div>
+    <button
+      (click)="onToggle(TabName.Tasks)"
+      matRipple
+      [matRippleColor]="'#D4D4D4'"
+      [ngClass]="{
+        'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-r-xl transition-colors duration-300 ease-in-out':
           activeTab() === TabName.Tasks,
-        'text-color-neutral-content hover:bg-color-neutral-surface-lower':
+        'text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700':
           activeTab() !== TabName.Tasks,
       }"
-    class="group flex justify-center items-center p-1 gap-2 w-[154px] min-w-[80px] h-[39px] text-sm font-semibold hover:rounded-r-xl isolate"
-  >
-    <!-- <mat-icon
-      aria-hidden="false"
-      aria-label="home icon"
-      class="w-5 h-6 z-10 mr-[3px]"
-      fontIcon="home"
-    ></mat-icon> -->
-    <span class="my-auto leading-[100%] z-10 ml-1 tracking-normal">Tasks</span>
-  </button>
-
-  <div class="border border-color-core-border h-[39px] self-stretch"></div>
-
-  <button
-    (click)="onToggle(TabName.About)"
-    matRipple
-    [matRippleColor]="'#D4D4D4'"
-    [ngClass]="{
-        'bg-color-neutral-foreground text-color-core-foreground hover:bg-gray-200 rounded-r-measure-radius-s transition-colors duration-300 ease-in-out':
+      class="flex justify-center items-center px-4 py-1 gap-2 w-[99px] min-w-[80px] h-[39px] text-sm font-semibold"
+    >
+      <span class="my-auto leading-[100%] z-10 w-[39px] tracking-normal"
+        >Tasks</span
+      >
+    </button>
+    <div class="border border-gray-300 dark:border-gray-600 h-[39px] self-stretch"></div>
+    <button
+      (click)="onToggle(TabName.About)"
+      matRipple
+      [matRippleColor]="'#D4D4D4'"
+      [ngClass]="{
+        'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-r-xl transition-colors duration-300 ease-in-out':
           activeTab() === TabName.About,
-        'text-color-neutral-content hover:bg-color-neutral-surface-lower':
+        'text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700':
           activeTab() !== TabName.About,
       }"
-    class="group flex justify-center items-center p-1 gap-2 w-[154px] min-w-[80px] h-[39px] text-sm font-semibold hover:rounded-r-xl isolate"
-  >
-    <!-- <mat-icon
-      aria-hidden="false"
-      aria-label="home icon"
-      class="w-5 h-6 z-10 mr-[3px]"
-      fontIcon="home"
-    ></mat-icon> -->
-    <span class="my-auto leading-[100%] z-10 ml-1 tracking-normal">About</span>
-  </button>
-</div>
+      class="flex justify-center items-center px-4 py-1 gap-2 w-[99px] min-w-[80px] h-[39px] text-sm font-semibold"
+    >
+      <span class="my-auto leading-[100%] z-10 w-[39px] tracking-normal"
+        >About</span
+      >
+    </button>
+  </div>
 } @else {
-<!-- Handset Menu -->
-<button mat-icon-button [matMenuTriggerFor]="menu">
-  <mat-icon
-    aria-hidden="false"
-    aria-label="menu icon"
-    fontIcon="menu"
-  ></mat-icon>
-</button>
-<mat-menu #menu="matMenu">
-  <button
-    (click)="onToggle(TabName.Clients)"
-    matRipple
-    [matRippleColor]="'#D4D4D4'"
-    [ngClass]="{
-        'bg-color-neutral-foreground text-color-core-foreground transition-colors duration-300 ease-in-out':
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="menu icon"
+      fontIcon="menu"
+    ></mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button
+      (click)="onToggle(TabName.Clients)"
+      matRipple
+      [matRippleColor]="'#D4D4D4'"
+      [ngClass]="{
+        'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300 ease-in-out':
           activeTab() === TabName.Clients,
-        'text-color-neutral-content hover:bg-color-neutral-surface-lower':
+        'text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700':
           activeTab() !== TabName.Clients,
       }"
-    class="flex gap-2 px-4 py-1 text-sm font-semibold w-full"
-  >
-    <!-- <design-system-icon iconName="home" class="z-10"></design-system-icon> -->
-    <span class="self-stretch my-auto leading-[100%] z-10">Clients</span>
-  </button>
-
-  <button
-    (click)="onToggle(TabName.Tasks)"
-    matRipple
-    [matRippleColor]="'#D4D4D4'"
-    [ngClass]="{
-        'bg-color-neutral-foreground text-color-core-foreground transition-colors duration-300 ease-in-out':
+      class="flex gap-2 px-4 py-1 text-sm font-semibold w-full"
+    >
+      <span class="self-stretch my-auto leading-[100%] z-10">Clients</span>
+    </button>
+    <button
+      (click)="onToggle(TabName.Tasks)"
+      matRipple
+      [matRippleColor]="'#D4D4D4'"
+      [ngClass]="{
+        'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300 ease-in-out':
           activeTab() === TabName.Tasks,
-        'text-color-neutral-content hover:bg-color-neutral-surface-lower':
+        'text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700':
           activeTab() !== TabName.Tasks,
       }"
-    class="flex gap-2 px-4 py-1 text-sm font-semibold w-full"
-  >
-    <!-- <design-system-icon iconName="heart" class="z-10"></design-system-icon> -->
-    <span class="self-stretch my-auto leading-[100%] z-10">Tasks</span>
-  </button>
-
-  <button
-    (click)="onToggle(TabName.About)"
-    matRipple
-    [matRippleColor]="'#D4D4D4'"
-    [ngClass]="{
-        'bg-color-neutral-foreground text-color-core-foreground transition-colors duration-300 ease-in-out':
+      class="flex gap-2 px-4 py-1 text-sm font-semibold w-full"
+    >
+      <span class="self-stretch my-auto leading-[100%] z-10">Tasks</span>
+    </button>
+    <button
+      (click)="onToggle(TabName.About)"
+      matRipple
+      [matRippleColor]="'#D4D4D4'"
+      [ngClass]="{
+        'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300 ease-in-out':
           activeTab() === TabName.About,
-        'text-color-neutral-content hover:bg-color-neutral-surface-lower':
+        'text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700':
           activeTab() !== TabName.About,
       }"
-    class="flex gap-2 px-4 py-1 text-sm font-semibold w-full"
-  >
-    <!-- <design-system-icon iconName="heart" class="z-10"></design-system-icon> -->
-    <span class="self-stretch my-auto leading-[100%] z-10">About</span>
-  </button>
-</mat-menu>
+      class="flex gap-2 px-4 py-1 text-sm font-semibold w-full"
+    >
+      <span class="self-stretch my-auto leading-[100%] z-10">About</span>
+    </button>
+  </mat-menu>
 }
