@@ -38,7 +38,12 @@
         track client.id; let idx = $index, first = $first, last = $last, even =
         $even, odd = $odd, count = $count) {
         <tr
-          class="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-300"
+          [ngClass]="{
+            'bg-gray-100 dark:bg-gray-900': even,
+            'bg-white dark:bg-gray-800': odd,
+            'font-semibold': first || last,
+            'hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-300': true
+          }"
         >
           <td class="py-3 px-4 text-sm text-gray-700 dark:text-gray-300">
             {{ client.name | titlecase }}
@@ -47,12 +52,23 @@
             {{ client.role | titlecase }}
           </td>
           <td class="py-3 px-4 text-sm text-gray-700 dark:text-gray-300">
-            <button class="text-blue-500 dark:text-blue-400 hover:underline">
+            <button
+              type="submit"
+              mat-flat-button
+              class="!bg-gradient-to-r from-blue-500 via-blue-700 to-blue-900 !text-white !font-semibold !rounded-md !shadow-md hover:bg-gradient-to-br"
+            >
               Edit
             </button>
-            <button class="text-red-500 dark:text-red-400 hover:underline ml-2">
+            <button
+              type="submit"
+              mat-flat-button
+              class="!bg-gradient-to-r from-red-500 via-red-700 to-red-800 !text-white !font-semibold !rounded-md !shadow-md hover:bg-gradient-to-br ml-2"
+            >
               Delete
             </button>
+            <button
+              class="text-red-500 dark:text-red-400 hover:underline ml-2"
+            ></button>
           </td>
         </tr>
         }

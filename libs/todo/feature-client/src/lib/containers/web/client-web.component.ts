@@ -5,11 +5,19 @@ import { ButtonComponent } from '@nx-ng-ionic/shared/ui-components';
 import { ClientBaseComponent } from '../client-base.component';
 import { MatIconModule } from '@angular/material/icon';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'todo-client-web',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, MatIconModule, ReactiveFormsModule, TitleCasePipe],
+  imports: [
+    CommonModule,
+    ButtonComponent,
+    MatIconModule,
+    ReactiveFormsModule,
+    TitleCasePipe,
+    MatButtonModule,
+  ],
   templateUrl: './client-web.component.html',
   styleUrl: './client-web.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
