@@ -1,0 +1,18 @@
+:host {
+  @apply fixed top-0 w-full z-50;
+}
+
+.header {
+  @apply flex
+  items-center
+  gap-2
+  justify-between
+  px-6
+  text-center
+  whitespace-nowrap
+  border-b
+  border-solid
+  bg-gray-950
+  border-gray-700
+  max-md:flex-wrap max-md:px-5;
+}

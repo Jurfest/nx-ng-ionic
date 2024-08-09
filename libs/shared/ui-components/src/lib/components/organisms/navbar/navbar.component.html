@@ -1,0 +1,10 @@
+<header class="header">
+  <components-logo></components-logo>
+  <nav>
+    <components-web-toggle-button
+      [isHandset]="isHandset$ | async"
+      (toggleActive)="navigateToTabName($event)"
+      [activeTab]="active$ | async"
+    ></components-web-toggle-button>
+  </nav>
+</header>
