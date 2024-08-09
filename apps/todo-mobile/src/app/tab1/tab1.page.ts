@@ -1,4 +1,4 @@
-import { TitleCasePipe } from '@angular/common';
+import { AsyncPipe, TitleCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import {
   IonButton,
@@ -12,6 +12,7 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
+import { ClientBaseComponent } from '@nx-ng-ionic/todo/feature-client';
 import { addIcons } from 'ionicons';
 import { addCircle, create, trash } from 'ionicons/icons';
 
@@ -37,29 +38,12 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
     IonList,
     IonLabel,
     TitleCasePipe,
+    AsyncPipe,
   ],
 })
-export class Tab1Page {
-  users = [
-    {
-      id: 1,
-      name: 'Nicolas Flamel',
-      role: 'admin',
-      avatar: 'Alchemist',
-    },
-    {
-      id: 2,
-      name: 'Thimbletack Pebble',
-      role: 'client',
-      avatar: 'Gnome',
-    },
-  ];
-
+export class Tab1Page extends ClientBaseComponent {
   constructor() {
+    super();
     addIcons({ trash, create, addCircle });
   }
-
-  addUser(): void {}
-  editUser(a: any): void {}
-  deleteUser(b: any): void {}
 }

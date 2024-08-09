@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title> Client Management </ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="addUser()">
+      <ion-button (click)="addClient()">
         <ion-icon slot="icon-only" name="add-circle"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -11,17 +11,18 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    @for (user of users; track user.id) {
+    @let clientList = (clientList$ | async);
+    @for (client of clientList; track client.id) {
     <ion-item>
       <ion-label>
-        <h2>{{ user.name }}</h2>
-        <p>{{ user.role | titlecase }}</p>
+        <h2>{{ client.name }}</h2>
+        <p>{{ client.description| titlecase }}</p>
       </ion-label>
       <ion-buttons slot="end">
-        <ion-button (click)="editUser(user)">
+        <ion-button (click)="editClient(client)">
           <ion-icon slot="icon-only" name="create"></ion-icon>
         </ion-button>
-        <ion-button (click)="deleteUser(user)">
+        <ion-button (click)="deleteClient(client)">
           <ion-icon slot="icon-only" name="trash"></ion-icon>
         </ion-button>
       </ion-buttons>
