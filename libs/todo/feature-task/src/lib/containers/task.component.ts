@@ -22,3 +22,5 @@ export class TaskComponent implements OnInit {
     this.taskFacade.load();
   }
 }
+
+export default TaskComponent;

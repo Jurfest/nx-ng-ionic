@@ -18,11 +18,8 @@ export const appRoutes: Route[] = [
       },
       {
         path: 'tasks',
-        // TODO: - Update route
         loadChildren: () =>
-          import('@nx-ng-ionic/todo/feature-client').then(
-            (m) => m.CLIENT_ROUTES
-          ),
+          import('@nx-ng-ionic/todo/feature-task').then((m) => m.TASK_ROUTES),
       },
       {
         path: 'about',
