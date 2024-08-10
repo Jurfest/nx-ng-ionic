@@ -27,4 +27,8 @@ export class TaskBaseComponent implements OnInit {
   protected loadClients(): void {
     this.clientFacade.loadClientList();
   }
+
+  protected deleteTask(id: string): void {
+    this.taskFacade.deleteTask(id);
+  }
 }

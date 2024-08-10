@@ -14,9 +14,13 @@ export class TaskDataService {
     return this.http.get<Task[]>(`${apiUrl}/tasks`);
   }
 
+  deleteTask(id: string): Observable<void> {
+    return this.http.delete<void>(`${apiUrl}/tasks/${id}`);
+  }
+
   // load(): Observable<Task[]> {
-    // Uncomment if needed
-    /*
+  // Uncomment if needed
+  /*
         const url = '...';
         const params = new HttpParams().set('param', 'value');
         const headers = new HttpHeaders().set('Accept', 'application/json');

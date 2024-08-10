@@ -1,5 +1,5 @@
 <div class="container mx-auto p-6 min-h-screen space-y-6">
-  <header class="flex justify-between mb-11">
+  <header class="flex justify-between mb-6">
     <h1
       class="text-4xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent inline-block"
     >
@@ -23,5 +23,8 @@
   </header>
 
   @let taskList = (taskList$ | async) ?? [];
-  <todo-dashboard [taskList]="taskList"></todo-dashboard>
+  <todo-dashboard
+    [taskList]="taskList"
+    (removeEmmiter)="deleteTask($event)"
+  ></todo-dashboard>
 </div>

@@ -12,7 +12,7 @@
       </button>
       <mat-menu #menu="matMenu" xPosition="before">
         <button mat-menu-item>Expand</button>
-        <button mat-menu-item>Remove</button>
+        <button mat-menu-item (click)="onRemove(task.id)">Remove</button>
       </mat-menu>
     </div>
     <p class="text-[#9ca3af] mb-2">{{ task?.description }}</p>

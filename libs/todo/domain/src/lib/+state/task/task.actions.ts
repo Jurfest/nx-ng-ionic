@@ -7,5 +7,8 @@ export const taskActions = createActionGroup({
     loadTask: emptyProps(),
     loadTaskSuccess: props<{ taskList: Task[] }>(),
     loadTaskFailure: props<{ error: unknown }>(),
+    deleteTask: props<{ id: string }>(),
+    deleteTaskSuccess: props<{ id: string }>(),
+    deleteTaskFailure: props<{ error: unknown }>(),
   },
 });

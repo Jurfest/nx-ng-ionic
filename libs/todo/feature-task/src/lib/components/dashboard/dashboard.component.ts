@@ -3,6 +3,7 @@ import {
   inject,
   ChangeDetectionStrategy,
   input,
+  output,
 } from '@angular/core';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
@@ -33,4 +34,9 @@ import { Client, Task } from '@nx-ng-ionic/todo/domain';
 })
 export class DashboardComponent {
   taskList = input.required<Task[]>();
+  removeEmmiter = output<string>();
+
+  onRemove(taskId: string): void {
+    this.removeEmmiter.emit(taskId);
+  }
 }

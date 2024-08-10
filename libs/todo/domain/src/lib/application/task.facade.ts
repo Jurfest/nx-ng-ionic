@@ -15,4 +15,8 @@ export class TaskFacade {
   loadTaskList(): void {
     this.store.dispatch(taskActions.loadTask());
   }
+
+  deleteTask(id: string): void {
+    this.store.dispatch(taskActions.deleteTask({ id }));
+  }
 }

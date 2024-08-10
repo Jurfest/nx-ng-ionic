@@ -77,8 +77,6 @@ export const clientFeature = createFeature({
       ...state,
       error: action.error,
     }))
-
-
   ),
   extraSelectors: (
     { selectTodoClientState, selectSelectedId },

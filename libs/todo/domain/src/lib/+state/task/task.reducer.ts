@@ -33,6 +33,20 @@ export const taskFeature = createFeature({
     on(taskActions.loadTaskFailure, (state, action) => ({
       ...state,
       error: action.error,
+    })),
+
+    // Delete
+    on(taskActions.deleteTask, (state) => ({
+      ...state,
+      loaded: false,
+      error: null,
+    })),
+    on(taskActions.deleteTaskSuccess, (state, action) =>
+      adapter.removeOne(action.id, { ...state, loaded: true })
+    ),
+    on(taskActions.deleteTaskFailure, (state, action) => ({
+      ...state,
+      error: action.error,
     }))
   ),
   extraSelectors: (
