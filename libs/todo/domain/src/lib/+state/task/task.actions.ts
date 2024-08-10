@@ -1,5 +1,6 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { Task } from '../../entities/task';
+
+import { Task, TaskViewModel } from '../../entities/task';
 
 export const taskActions = createActionGroup({
   source: 'Task',
@@ -7,6 +8,9 @@ export const taskActions = createActionGroup({
     loadTask: emptyProps(),
     loadTaskSuccess: props<{ taskList: Task[] }>(),
     loadTaskFailure: props<{ error: unknown }>(),
+    addTask: props<{ task: TaskViewModel }>(),
+    addTaskSuccess: props<{ task: Task }>(),
+    addTaskFailure: props<{ error: unknown }>(),
     updateTask: props<{ task: Task }>(),
     updateTaskSuccess: props<{ task: Task }>(),
     updateTaskFailure: props<{ error: unknown }>(),

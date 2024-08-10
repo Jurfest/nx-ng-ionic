@@ -35,6 +35,20 @@ export const taskFeature = createFeature({
       error: action.error,
     })),
 
+    // Add
+    on(taskActions.addTask, (state) => ({
+      ...state,
+      loaded: false,
+      error: null,
+    })),
+    on(taskActions.addTaskSuccess, (state, action) =>
+      adapter.addOne(action.task, { ...state, loaded: true })
+    ),
+    on(taskActions.addTaskFailure, (state, action) => ({
+      ...state,
+      error: action.error,
+    })),
+
     // Update
     on(taskActions.updateTask, (state) => ({
       ...state,

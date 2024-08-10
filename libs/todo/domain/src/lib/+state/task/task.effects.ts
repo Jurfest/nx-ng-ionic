@@ -21,15 +21,25 @@ export class TaskEffects {
     )
   );
 
+  addTask$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(taskActions.addTask),
+      switchMap((action) =>
+        this.taskDataService.createTask(action.task).pipe(
+          map((task) => taskActions.addTaskSuccess({ task })),
+          catchError((error) => of(taskActions.addTaskFailure({ error })))
+        )
+      )
+    )
+  );
+
   updateTask$ = createEffect(() =>
     this.actions$.pipe(
       ofType(taskActions.updateTask),
       switchMap((action) =>
         this.taskDataService.updateTask(action.task).pipe(
           map((task) => taskActions.updateTaskSuccess({ task })),
-          catchError((error) =>
-            of(taskActions.updateTaskFailure({ error }))
-          )
+          catchError((error) => of(taskActions.updateTaskFailure({ error })))
         )
       )
     )

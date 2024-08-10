@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Task } from '../entities/task';
+import { Task, TaskViewModel } from '../entities/task';
 
 // TODO: - Environments
 const apiUrl = 'http://localhost:3000';
@@ -14,6 +14,10 @@ export class TaskDataService {
     return this.http.get<Task[]>(`${apiUrl}/tasks`);
   }
 
+  createTask(client: TaskViewModel): Observable<Task> {
+    return this.http.post<Task>(`${apiUrl}/tasks`, client);
+  }
+
   updateTask(task: Task): Observable<Task> {
     return this.http.put<Task>(`${apiUrl}/tasks/${task.id}`, task);
   }
@@ -22,7 +26,6 @@ export class TaskDataService {
     return this.http.delete<void>(`${apiUrl}/tasks/${id}`);
   }
 
-  // load(): Observable<Task[]> {
   // Uncomment if needed
   /*
         const url = '...';
