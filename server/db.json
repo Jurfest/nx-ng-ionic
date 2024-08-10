@@ -1,22 +1,22 @@
 {
   "clients": [
     {
-      "name": "Thimbletack Pebble",
-      "role": "admin",
-      "avatar": "alchemist",
-      "id": "6769"
-    },
-    {
-      "name": "Brynna Nimblespark",
-      "role": "admin",
-      "avatar": "alchemist",
-      "id": "7ed1"
-    },
-    {
-      "id": "8995",
       "name": "Nicolas Flamel",
       "role": "admin",
-      "avatar": "alchemist"
+      "avatar": "alchemist",
+      "id": "b998"
+    },
+    {
+      "id": "9e23",
+      "name": "Brynna Nimblespark",
+      "role": "client",
+      "avatar": "gnome"
+    },
+    {
+      "id": "74f1",
+      "name": "Thimbletack Pebble",
+      "role": "client",
+      "avatar": "gnome"
     }
   ],
   "tasks": [

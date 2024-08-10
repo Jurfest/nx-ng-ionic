@@ -57,7 +57,10 @@ export class ClientWebComponent extends ClientBaseComponent {
           if (client) {
             const newClient: Client = {
               name: this.clientForm.controls.name.value ?? '',
-              role: this.clientForm.controls.role.value ? 'admin' : 'client',
+              role:
+                this.clientForm.controls.role.value === 'admin'
+                  ? 'admin'
+                  : 'client',
               avatar:
                 this.clientForm.controls.role.value === 'admin'
                   ? 'alchemist'
@@ -68,7 +71,10 @@ export class ClientWebComponent extends ClientBaseComponent {
           } else {
             const newClient: ClientViewModel = {
               name: this.clientForm.controls.name.value ?? '',
-              role: this.clientForm.controls.role.value ? 'admin' : 'client',
+              role:
+                this.clientForm.controls.role.value === 'admin'
+                  ? 'admin'
+                  : 'client',
               avatar:
                 this.clientForm.controls.role.value === 'admin'
                   ? 'alchemist'
