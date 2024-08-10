@@ -1,33 +1,27 @@
 {
   "clients": [
     {
-      "id": 1,
-      "name": "Nicolas Flamel",
-      "role": "admin",
-      "avatar": "alchemist"
-    },
-    {
-      "id": 2,
       "name": "Thimbletack Pebble",
-      "role": "client",
-      "avatar": "gnome"
+      "role": "admin",
+      "avatar": "alchemist",
+      "id": "6769"
     },
     {
-      "id": 3,
       "name": "Brynna Nimblespark",
-      "role": "client",
-      "avatar": "gnome"
+      "role": "admin",
+      "avatar": "alchemist",
+      "id": "7ed1"
     },
     {
-      "id": "2b34",
-      "name": "Raimundo Nonato",
+      "id": "8995",
+      "name": "Nicolas Flamel",
       "role": "admin",
       "avatar": "alchemist"
     }
   ],
   "tasks": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Implement login functionality",
       "description": "Create login page and integrate with API.",
       "creationDate": "2024-08-08T12:00:00Z",
@@ -36,7 +30,7 @@
       "userId": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Design homepage layout",
       "description": "Create a responsive homepage layout.",
       "creationDate": "2024-08-05T09:00:00Z",
@@ -45,7 +39,7 @@
       "userId": 2
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Verify web SEO",
       "description": "Improve SEO metrics.",
       "creationDate": "2024-08-05T11:21:47Z",

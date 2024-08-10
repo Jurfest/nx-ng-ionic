@@ -54,16 +54,16 @@ export class ClientWebComponent extends ClientBaseComponent {
         take(1),
         filter((result) => !!result),
         tap(() => {
-          const newClient: Client = {
-            name: this.clientForm.controls.name.value ?? '',
-            role: this.clientForm.controls.role.value ? 'admin' : 'client',
-            avatar:
-              this.clientForm.controls.role.value === 'admin'
-                ? 'alchemist'
-                : 'gnome',
-            id: client?.id ?? 0,
-          };
-          if (type === 'update') {
+          if (client) {
+            const newClient: Client = {
+              name: this.clientForm.controls.name.value ?? '',
+              role: this.clientForm.controls.role.value ? 'admin' : 'client',
+              avatar:
+                this.clientForm.controls.role.value === 'admin'
+                  ? 'alchemist'
+                  : 'gnome',
+              id: client.id,
+            };
             this.editClient(newClient);
           } else {
             const newClient: ClientViewModel = {

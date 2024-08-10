@@ -25,7 +25,7 @@ export class ClientFacade {
     this.store.dispatch(clientActions.updateClient({ client }));
   }
 
-  deleteClient(id: number): void {
+  deleteClient(id: string): void {
     this.store.dispatch(clientActions.deleteClient({ id }));
   }
 }
