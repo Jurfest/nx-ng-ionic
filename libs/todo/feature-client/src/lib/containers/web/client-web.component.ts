@@ -1,19 +1,18 @@
-import { Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CommonModule, TitleCasePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { IonLabel, IonListHeader } from '@ionic/angular/standalone';
 import { ButtonComponent } from '@nx-ng-ionic/shared/ui-components';
+import { AppShellNoRenderDirective } from '@nx-ng-ionic/shared/util-common';
 import { Client, ClientViewModel } from '@nx-ng-ionic/todo/domain';
 import { filter, map, shareReplay, take, tap } from 'rxjs';
-import { BreakpointObserver } from '@angular/cdk/layout';
 
-import { ClientModalWebComponent } from '../../components/modal/client-modal-web.component';
+import { ClientModalWebComponent } from '../../components/web/modal/client-modal-web.component';
 import { ClientBaseComponent } from '../client-base.component';
-import { IonLabel, IonListHeader } from '@ionic/angular/standalone';
-import { AppShellNoRenderDirective } from '@nx-ng-ionic/shared/util-common';
 
 @Component({
   selector: 'todo-client-web',

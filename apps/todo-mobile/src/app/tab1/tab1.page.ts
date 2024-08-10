@@ -1,22 +1,15 @@
 import { AsyncPipe, TitleCasePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { IonicModule, ModalController } from '@ionic/angular';
 import {
-  IonButton,
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/angular/standalone';
-import { ClientBaseComponent } from '@nx-ng-ionic/todo/feature-client';
+  ClientBaseComponent,
+  ClientModalMobileComponent,
+} from '@nx-ng-ionic/todo/feature-client';
 import { addIcons } from 'ionicons';
 import { addCircle, create, trash } from 'ionicons/icons';
 
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import { Client } from '@nx-ng-ionic/todo/domain';
 
 @Component({
   selector: 'nx-ng-ionic-tab1',
@@ -24,26 +17,57 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
   styleUrls: ['tab1.page.scss'],
   standalone: true,
   imports: [
-    IonItem,
-    IonIcon,
-    IonButton,
-    IonButtons,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonContent,
     ExploreContainerComponent,
-    IonIcon,
-    IonList,
-    IonList,
-    IonLabel,
+    IonicModule,
     TitleCasePipe,
     AsyncPipe,
+    ClientModalMobileComponent,
   ],
 })
 export class Tab1Page extends ClientBaseComponent {
+  message =
+    'This modal example uses the modalController to present and dismiss modals.';
+
+  private modalCtrl = inject(ModalController);
+
   constructor() {
     super();
     addIcons({ trash, create, addCircle });
   }
+
+  async openModal(client?: Client) {
+    const modal = await this.modalCtrl.create({
+      component: ClientModalMobileComponent,
+    });
+    modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+
+    if (role === 'confirm') {
+      this.message = `Hello, ${data}!`;
+    }
+  }
 }
+
+//
+
+// //
+// ngOnInit(): void {
+//     this.loadClients();
+//   }
+
+//   protected loadClients(): void {
+//     this.clientFacade.loadClientList();
+//   }
+
+//   protected addClient(client: ClientViewModel): void {
+//     this.clientFacade.addClient(client);
+//   }
+
+//   protected editClient(client: Client): void {
+//     this.clientFacade.updateClient(client);
+//   }
+
+//   protected deleteClient(client: Client): void {
+//     this.clientFacade.deleteClient(client.id);
+//   }
