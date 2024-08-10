@@ -7,6 +7,7 @@ import {
 } from '@ionic/angular/standalone';
 
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import { AboutComponent } from '@nx-ng-ionic/todo/feature-about';
 
 @Component({
   selector: 'nx-ng-ionic-tab3',
@@ -19,6 +20,7 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
     IonTitle,
     IonContent,
     ExploreContainerComponent,
+    AboutComponent
   ],
 })
 export class Tab3Page {
