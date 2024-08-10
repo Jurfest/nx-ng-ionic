@@ -64,14 +64,38 @@
           <td
             class="py-3 px-4 text-right text-sm text-gray-700 dark:text-gray-300"
           >
-            <components-web-button (click)="openDialog('update', client)"> Edit </components-web-button>
+            @let isHandset = isHandset$ | async; @if (!isHandset) {
+            <components-web-button
+              *commonAppShellNoRender
+              (click)="openDialog('update', client)"
+            >
+              Edit
+            </components-web-button>
             <button
+              *commonAppShellNoRender
               mat-flat-button
               (click)="deleteClient(client)"
               class="!bg-gradient-to-r from-red-600 via-red-700 to-red-800 !text-white !font-semibold !shadow-md hover:bg-gradient-to-br ml-2"
             >
               Delete
             </button>
+            } @else {
+
+            <button mat-icon-button (click)="openDialog('update', client)">
+              <mat-icon
+                aria-hidden="false"
+                aria-label="edit icon"
+                fontIcon="edit"
+              ></mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteClient(client)">
+              <mat-icon
+                aria-hidden="false"
+                aria-label="delete icon"
+                fontIcon="delete"
+              ></mat-icon>
+            </button>
+            }
           </td>
         </tr>
         } @empty {
