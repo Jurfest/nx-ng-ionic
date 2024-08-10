@@ -68,7 +68,6 @@ export class Tab1Page extends ClientBaseComponent {
       if (client) {
         this.editClient({ ...client, ...data });
       } else {
-        console.log('dados recebidos (add): ', data);
         this.addClient({ ...data, avatar: data.role === 'client' ? 'gnome' : 'alchemist' });
       }
     }

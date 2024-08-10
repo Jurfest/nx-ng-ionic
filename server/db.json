@@ -7,7 +7,7 @@
       "id": "b998"
     },
     {
-      "name": "Brynna Nimblespark3",
+      "name": "Brynna Nimblespark",
       "role": "client",
       "avatar": "gnome",
       "id": "9e23"
@@ -17,6 +17,12 @@
       "name": "Thimbletack Pebble",
       "role": "client",
       "avatar": "gnome"
+    },
+    {
+      "id": "6a43",
+      "name": "Perenelle Flamel ",
+      "role": "admin",
+      "avatar": "alchemist"
     }
   ],
   "tasks": [
