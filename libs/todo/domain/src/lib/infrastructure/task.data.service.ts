@@ -3,11 +3,18 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Task } from '../entities/task';
 
+// TODO: - Environments
+const apiUrl = 'http://localhost:3000';
+
 @Injectable({ providedIn: 'root' })
 export class TaskDataService {
   private http = inject(HttpClient);
 
-  load(): Observable<Task[]> {
+  loadTaskList(): Observable<Task[]> {
+    return this.http.get<Task[]>(`${apiUrl}/tasks`);
+  }
+
+  // load(): Observable<Task[]> {
     // Uncomment if needed
     /*
         const url = '...';
@@ -15,19 +22,5 @@ export class TaskDataService {
         const headers = new HttpHeaders().set('Accept', 'application/json');
         return this.http.get<Task[]>(url, {params, headers});
         */
-
-    return of([
-      { id: 1, name: 'Lorem ipsum', description: 'Lorem ipsum dolor sit amet' },
-      {
-        id: 2,
-        name: 'At vero eos',
-        description: 'At vero eos et accusam et justo duo dolores',
-      },
-      {
-        id: 3,
-        name: 'Duis autem',
-        description: 'Duis autem vel eum iriure dolor in hendrerit',
-      },
-    ]);
-  }
+  // }
 }

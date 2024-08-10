@@ -1,5 +1,6 @@
-import { Injectable, inject } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
+
 import { taskActions } from '../+state/task/task.actions';
 import { taskFeature } from '../+state/task/task.reducer';
 
@@ -11,7 +12,7 @@ export class TaskFacade {
   taskList$ = this.store.pipe(select(taskFeature.selectAll));
   selectedTask$ = this.store.pipe(select(taskFeature.selectSelected));
 
-  load(): void {
+  loadTaskList(): void {
     this.store.dispatch(taskActions.loadTask());
   }
 }

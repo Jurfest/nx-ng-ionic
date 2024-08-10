@@ -19,7 +19,7 @@ export class TaskComponent implements OnInit {
   }
 
   load(): void {
-    this.taskFacade.load();
+    this.taskFacade.loadTaskList();
   }
 }
 

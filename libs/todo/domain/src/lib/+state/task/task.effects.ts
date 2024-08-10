@@ -14,7 +14,7 @@ export class TaskEffects {
     this.actions$.pipe(
       ofType(taskActions.loadTask),
       switchMap((/* action */) =>
-        this.taskDataService.load().pipe(
+        this.taskDataService.loadTaskList().pipe(
           map((taskList) => taskActions.loadTaskSuccess({ taskList })),
           catchError((error) => of(taskActions.loadTaskFailure({ error })))
         ))
