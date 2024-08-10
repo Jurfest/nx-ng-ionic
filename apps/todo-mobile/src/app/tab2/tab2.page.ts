@@ -7,6 +7,7 @@ import {
 } from '@ionic/angular/standalone';
 
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import { TaskWebComponent } from '@nx-ng-ionic/todo/feature-task';
 
 @Component({
   selector: 'nx-ng-ionic-tab2',
@@ -19,6 +20,7 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
     IonTitle,
     IonContent,
     ExploreContainerComponent,
+    TaskWebComponent
   ],
 })
 export class Tab2Page {
