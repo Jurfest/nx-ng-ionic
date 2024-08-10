@@ -1,8 +1,20 @@
 {
   "clients": [
     {
-      "id": "9e23",
+      "name": "Nicolas Flamel",
+      "role": "admin",
+      "avatar": "alchemist",
+      "id": "b998"
+    },
+    {
       "name": "Brynna Nimblespark",
+      "role": "client",
+      "avatar": "gnome",
+      "id": "9e23"
+    },
+    {
+      "id": "74f1",
+      "name": "Thimbletack Pebble",
       "role": "client",
       "avatar": "gnome"
     }

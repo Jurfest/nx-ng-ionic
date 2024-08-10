@@ -12,7 +12,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 
 import { ClientModalWebComponent } from '../../components/modal/client-modal-web.component';
 import { ClientBaseComponent } from '../client-base.component';
-import { IonLabel, IonListHeader } from "@ionic/angular/standalone";
+import { IonLabel, IonListHeader } from '@ionic/angular/standalone';
 import { AppShellNoRenderDirective } from '@nx-ng-ionic/shared/util-common';
 
 @Component({
@@ -50,10 +50,14 @@ export class ClientWebComponent extends ClientBaseComponent {
   );
 
   openDialog(type: 'create' | 'update', client?: Client): void {
-    this.clientForm.patchValue({
-      name: client?.name || '',
-      role: client?.role || '',
-    });
+    if (client) {
+      this.clientForm.patchValue({
+        name: client?.name,
+        role: client?.role,
+      });
+    } else {
+      this.clientForm.reset();
+    }
     const dialogRef = this.dialog.open(ClientModalWebComponent, {
       data: {
         type,

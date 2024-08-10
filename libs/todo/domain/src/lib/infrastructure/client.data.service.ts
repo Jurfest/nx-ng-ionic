@@ -20,7 +20,6 @@ export class ClientDataService {
   }
 
   updateClient(client: Client): Observable<Client> {
-    console.log('client: ', client);
     return this.http.put<Client>(`${apiUrl}/clients/${client.id}`, client);
   }
 
