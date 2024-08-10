@@ -1,8 +1,27 @@
-<h1
-  class="text-4xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent inline-block"
->
-  Tasks
-</h1>
+<div class="container mx-auto p-6 min-h-screen space-y-6">
+  <header class="flex justify-between mb-11">
+    <h1
+      class="text-4xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent inline-block"
+    >
+      Tasks
+    </h1>
 
-@let taskList = (taskList$ | async) ?? [];
-<todo-dashboard [taskList]="taskList"></todo-dashboard>
+    <div>
+      <!-- <button
+        mat-flat-button
+        (click)="openDialog('create')"
+        class="!bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 !text-white !font-semibold !shadow-md hover:bg-gradient-to-br"
+      >
+        Add New Client
+        <mat-icon
+          aria-hidden="false"
+          aria-label="add icon"
+          fontIcon="add"
+        ></mat-icon>
+      </button> -->
+    </div>
+  </header>
+
+  @let taskList = (taskList$ | async) ?? [];
+  <todo-dashboard [taskList]="taskList"></todo-dashboard>
+</div>

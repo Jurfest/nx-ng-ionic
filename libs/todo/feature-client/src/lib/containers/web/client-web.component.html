@@ -6,7 +6,7 @@
       Clients
     </h1>
 
-    <div class="">
+    <div>
       <button
         mat-flat-button
         (click)="openDialog('create')"
@@ -22,7 +22,7 @@
     </div>
   </header>
 
-  <!-- Clients List -->
+  <!-- Client List -->
   <div class="bg-white shadow-md rounded-lg overflow-hidden">
     <table class="min-w-full bg-white dark:bg-gray-800">
       <thead class="bg-gray-100 dark:bg-gray-900">
@@ -55,7 +55,7 @@
             'hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-300': true
           }"
         >
-          <td class="py-3 px-4 text-sm text-gray-700 dark:text-gray-300">
+          <td class="py-3 px-4 text-sm text-gray-700 dark:text-gray-300 text-ellipsis overflow-hidden">
             {{ client.name | titlecase }}
           </td>
           <td class="py-3 px-4 text-sm text-gray-700 dark:text-gray-300">
