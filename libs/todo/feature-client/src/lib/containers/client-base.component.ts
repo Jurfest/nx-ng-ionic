@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Client, ClientFacade } from '@nx-ng-ionic/todo/domain';
+import { Client, ClientFacade, ClientViewModel } from '@nx-ng-ionic/todo/domain';
 
 /**
  * This component will not have its own template, as it will be inherited.
@@ -22,7 +22,7 @@ export class ClientBaseComponent implements OnInit {
     this.clientFacade.loadClientList();
   }
 
-  protected addClient(client: Client): void {
+  protected addClient(client: ClientViewModel): void {
     this.clientFacade.addClient(client);
   }
 

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Client } from '../entities/client';
+import { Client, ClientViewModel } from '../entities/client';
 
 // TODO: - Environments
 const apiUrl = 'http://localhost:3000';
@@ -15,11 +15,12 @@ export class ClientDataService {
     return this.http.get<Client[]>(`${apiUrl}/clients`);
   }
 
-  createClient(client: Client): Observable<Client> {
+  createClient(client: ClientViewModel): Observable<Client> {
     return this.http.post<Client>(`${apiUrl}/clients`, client);
   }
 
   updateClient(client: Client): Observable<Client> {
+    console.log('client: ', client);
     return this.http.put<Client>(`${apiUrl}/clients/${client.id}`, client);
   }
 

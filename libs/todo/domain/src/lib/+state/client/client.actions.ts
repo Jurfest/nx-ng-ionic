@@ -1,6 +1,6 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 
-import { Client } from '../../entities/client';
+import { Client, ClientViewModel } from '../../entities/client';
 
 export const clientActions = createActionGroup({
   source: 'Client',
@@ -8,7 +8,7 @@ export const clientActions = createActionGroup({
     loadClient: emptyProps(),
     loadClientSuccess: props<{ clientList: Client[] }>(),
     loadClientFailure: props<{ error: unknown }>(),
-    addClient: props<{ client: Client }>(),
+    addClient: props<{ client: ClientViewModel }>(),
     addClientSuccess: props<{ client: Client }>(),
     addClientFailure: props<{ error: unknown }>(),
     updateClient: props<{ client: Client }>(),

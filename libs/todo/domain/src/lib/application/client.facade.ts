@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store';
 
 import { clientActions } from '../+state/client/client.actions';
 import { clientFeature } from '../+state/client/client.reducer';
-import { Client } from '../entities/client';
+import { Client, ClientViewModel } from '../entities/client';
 
 @Injectable({ providedIn: 'root' })
 export class ClientFacade {
@@ -17,7 +17,7 @@ export class ClientFacade {
     this.store.dispatch(clientActions.loadClient());
   }
 
-  addClient(client: Client): void {
+  addClient(client: ClientViewModel): void {
     this.store.dispatch(clientActions.addClient({ client }));
   }
 
