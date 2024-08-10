@@ -25,6 +25,11 @@
             "glob": "**/*",
             "input": "libs/shared/ui-components/src/assets",
             "output": "assets"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/todo/feature-about/src/public",
+            "output": "assets"
           }
         ],
         "styles": [

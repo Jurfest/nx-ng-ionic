@@ -9,3 +9,5 @@ export * from './lib/entities/task';
 export * from './lib/infrastructure/task.data.service';
 
 export * from './lib/application/task.facade';
+
+export * from './lib/application/about.facade';

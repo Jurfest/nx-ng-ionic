@@ -1,4 +1,5 @@
 import { Route } from '@angular/router';
+import { TaskComponent } from '@nx-ng-ionic/todo/feature-task';
 
 export const appRoutes: Route[] = [
   {
@@ -23,10 +24,9 @@ export const appRoutes: Route[] = [
       },
       {
         path: 'about',
-        // TODO: - Update route
-        loadChildren: () =>
-          import('@nx-ng-ionic/todo/feature-client').then(
-            (m) => m.CLIENT_ROUTES
+        loadComponent: () =>
+          import('@nx-ng-ionic/todo/feature-about').then(
+            (m) => m.AboutComponent
           ),
       },
       {

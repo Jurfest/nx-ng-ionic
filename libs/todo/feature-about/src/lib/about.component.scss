@@ -1,0 +1,24 @@
+.table td {
+  border: 1px solid;
+  padding: 10px;
+}
+
+.about-section {
+  color: #ffffff;
+
+  .border-neon-blue {
+    border-color: #00d4ff;
+  }
+
+  .text-neon-green {
+    color: #00ff8c;
+  }
+
+  h2 {
+    text-shadow: 0 0 10px rgba(0, 255, 140, 0.8);
+  }
+
+  p {
+    text-shadow: 0 0 5px rgba(0, 255, 212, 0.7);
+  }
+}
