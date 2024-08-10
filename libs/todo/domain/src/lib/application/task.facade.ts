@@ -3,6 +3,7 @@ import { select, Store } from '@ngrx/store';
 
 import { taskActions } from '../+state/task/task.actions';
 import { taskFeature } from '../+state/task/task.reducer';
+import { Task } from '../entities/task';
 
 @Injectable({ providedIn: 'root' })
 export class TaskFacade {
@@ -18,5 +19,9 @@ export class TaskFacade {
 
   deleteTask(id: string): void {
     this.store.dispatch(taskActions.deleteTask({ id }));
+  }
+
+  updateTask(task: Task): void {
+    this.store.dispatch(taskActions.updateTask({ task }));
   }
 }

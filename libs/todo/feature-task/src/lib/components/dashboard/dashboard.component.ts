@@ -34,7 +34,12 @@ import { Client, Task } from '@nx-ng-ionic/todo/domain';
 })
 export class DashboardComponent {
   taskList = input.required<Task[]>();
+  updateEmmiter = output<Task>();
   removeEmmiter = output<string>();
+
+  onUpdate(task: Task): void {
+    this.updateEmmiter.emit(task);
+  }
 
   onRemove(taskId: string): void {
     this.removeEmmiter.emit(taskId);

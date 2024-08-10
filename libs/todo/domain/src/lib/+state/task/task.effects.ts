@@ -21,15 +21,27 @@ export class TaskEffects {
     )
   );
 
+  updateTask$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(taskActions.updateTask),
+      switchMap((action) =>
+        this.taskDataService.updateTask(action.task).pipe(
+          map((task) => taskActions.updateTaskSuccess({ task })),
+          catchError((error) =>
+            of(taskActions.updateTaskFailure({ error }))
+          )
+        )
+      )
+    )
+  );
+
   deleteTask$ = createEffect(() =>
     this.actions$.pipe(
       ofType(taskActions.deleteTask),
       switchMap((action) =>
         this.taskDataService.deleteTask(action.id).pipe(
           map(() => taskActions.deleteTaskSuccess({ id: action.id })),
-          catchError((error) =>
-            of(taskActions.deleteTaskFailure({ error }))
-          )
+          catchError((error) => of(taskActions.deleteTaskFailure({ error })))
         )
       )
     )

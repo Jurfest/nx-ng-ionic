@@ -14,6 +14,10 @@ export class TaskDataService {
     return this.http.get<Task[]>(`${apiUrl}/tasks`);
   }
 
+  updateTask(task: Task): Observable<Task> {
+    return this.http.put<Task>(`${apiUrl}/tasks/${task.id}`, task);
+  }
+
   deleteTask(id: string): Observable<void> {
     return this.http.delete<void>(`${apiUrl}/tasks/${id}`);
   }

@@ -55,11 +55,20 @@
     },
     {
       "id": "4",
-      "title": "Design homepage layout",
-      "description": "Create a responsive homepage layout.",
+      "title": "Implement E2E tests",
+      "description": "Create end-to-end tests with Cypress and Playwright for Web and Mobile applications and verify user stories in different screen sizes.",
       "creationDate": "2024-08-05T09:00:00Z",
       "dueDate": "2024-08-12T09:00:00Z",
       "status": "pending",
+      "userId": "9e23"
+    },
+    {
+      "id": "5",
+      "title": "Deploy Android App",
+      "description": "Deploy Connect Task in Play Store with Appflow.",
+      "creationDate": "2024-08-05T09:00:00Z",
+      "dueDate": "2024-08-12T09:00:00Z",
+      "status": "done",
       "userId": "9e23"
     }
   ]

@@ -11,7 +11,7 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu" xPosition="before">
-        <button mat-menu-item>Expand</button>
+        <button mat-menu-item (click)="onUpdate(task)">Update</button>
         <button mat-menu-item (click)="onRemove(task.id)">Remove</button>
       </mat-menu>
     </div>

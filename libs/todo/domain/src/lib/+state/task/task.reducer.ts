@@ -35,6 +35,20 @@ export const taskFeature = createFeature({
       error: action.error,
     })),
 
+    // Update
+    on(taskActions.updateTask, (state) => ({
+      ...state,
+      loaded: false,
+      error: null,
+    })),
+    on(taskActions.updateTaskSuccess, (state, action) =>
+      adapter.upsertOne(action.task, { ...state, loaded: true })
+    ),
+    on(taskActions.updateTaskFailure, (state, action) => ({
+      ...state,
+      error: action.error,
+    })),
+
     // Delete
     on(taskActions.deleteTask, (state) => ({
       ...state,
