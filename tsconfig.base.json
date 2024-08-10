@@ -24,7 +24,8 @@
       "@nx-ng-ionic/todo/domain": ["libs/todo/domain/src/index.ts"],
       "@nx-ng-ionic/todo/feature-client": [
         "libs/todo/feature-client/src/index.ts"
-      ]
+      ],
+      "@nx-ng-ionic/todo/feature-task": ["libs/todo/feature-task/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
