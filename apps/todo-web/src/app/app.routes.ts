@@ -1,5 +1,4 @@
 import { Route } from '@angular/router';
-import { TaskComponent } from '@nx-ng-ionic/todo/feature-task';
 
 export const appRoutes: Route[] = [
   {

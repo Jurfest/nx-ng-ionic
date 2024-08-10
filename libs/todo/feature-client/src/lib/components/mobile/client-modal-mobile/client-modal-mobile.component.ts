@@ -1,22 +1,20 @@
-import { Component, inject, Input, input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   IonButton,
   IonButtons,
   IonContent,
+  IonFooter,
   IonHeader,
   IonInput,
   IonItem,
-  IonTitle,
-  IonToolbar,
-  ModalController,
-  NavParams,
   IonLabel,
   IonSelect,
   IonSelectOption,
-  IonFooter,
+  IonTitle,
+  IonToolbar,
+  ModalController,
 } from '@ionic/angular/standalone';
-import { Client } from '@nx-ng-ionic/todo/domain';
 
 @Component({
   selector: 'todo-client-modal-mobile',
