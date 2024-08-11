@@ -29,7 +29,8 @@
         ],
         "styles": [
           "apps/todo-mobile/src/styles.scss",
-          "apps/todo-mobile/src/theme/variables.scss"
+          "apps/todo-mobile/src/theme/variables.scss",
+          "@angular/material/prebuilt-themes/cyan-orange.css"
         ],
         "scripts": []
       },

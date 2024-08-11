@@ -37,8 +37,8 @@
     },
     {
       "id": "2",
-      "title": "Design homepage layout",
-      "description": "Create a responsive homepage layout.",
+      "title": "Use Ionic Portals to implement micro-frontends in mobile",
+      "description": "Explore Ionic Portals to implement mobile architeture with micro-frontends.",
       "creationDate": "2024-08-05T09:00:00Z",
       "dueDate": "2024-08-12T09:00:00Z",
       "status": "pending",
