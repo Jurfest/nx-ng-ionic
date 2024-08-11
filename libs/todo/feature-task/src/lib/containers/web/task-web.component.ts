@@ -41,7 +41,7 @@ export class TaskWebComponent extends TaskBaseComponent {
       data: {
         type: task ? 'Update task' : 'Add task',
         taskForm: this.taskForm,
-        // task: task || {},
+        clientList$: this.clientList$ || []
       },
     });
 

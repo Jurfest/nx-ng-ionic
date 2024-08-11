@@ -45,12 +45,13 @@
       </mat-form-field>
     </div>
 
+    @let clientList = (data.clientList$ | async) ?? [];
     <div class="bg-gray-50 p-4 rounded-lg shadow-md">
       <p class="font-semibold text-lg">Task Connect</p>
       <mat-form-field class="w-full">
         <mat-label>Task Connect</mat-label>
         <mat-select formControlName="userId">
-          @for (client of [{ name: 'Client Name', id: '1' }]; track $index) {
+          @for (client of clientList; track client.id) {
           <mat-option [value]="client?.id">{{ client?.name }}</mat-option>
           }
         </mat-select>
