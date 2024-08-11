@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButton } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
+import { MatIcon } from '@angular/material/icon';
 import { Task, TaskViewModel } from '@nx-ng-ionic/todo/domain';
 import { filter, take, tap } from 'rxjs';
 
@@ -12,7 +14,13 @@ import { TaskBaseComponent } from '../task-base.component';
 @Component({
   selector: 'todo-task-web',
   standalone: true,
-  imports: [CommonModule, DashboardComponent, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    DashboardComponent,
+    ReactiveFormsModule,
+    MatButton,
+    MatIcon,
+  ],
   templateUrl: './task-web.component.html',
   styleUrl: './task-web.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -24,13 +32,12 @@ export class TaskWebComponent extends TaskBaseComponent {
   taskForm = this.fb.group({
     title: ['', Validators.required],
     description: ['', Validators.required],
-    creationDate: ['', Validators.required],
     dueDate: ['', Validators.required],
     status: ['', Validators.required],
     userId: [''],
   });
 
-  openModal(task: Task): void {
+  openModal(task?: Task): void {
     if (task) {
       this.taskForm.patchValue(task);
     } else {
@@ -39,9 +46,9 @@ export class TaskWebComponent extends TaskBaseComponent {
 
     const dialogRef = this.dialog.open(TaskModalWebComponent, {
       data: {
-        type: task ? 'Update task' : 'Add task',
+        type: task ? 'update' : 'create',
         taskForm: this.taskForm,
-        clientList$: this.clientList$ || []
+        clientList$: this.clientList$ || [],
       },
     });
 
@@ -51,12 +58,12 @@ export class TaskWebComponent extends TaskBaseComponent {
         take(1),
         filter((result) => !!result && this.taskForm.valid),
         tap(() => {
+          console.log('Here');
           if (task) {
             const updatedTask: Task = {
               ...task,
               title: this.taskForm.controls.title.value || '',
               description: this.taskForm.controls.description.value || '',
-              creationDate: this.taskForm.controls.creationDate.value || '',
               dueDate: this.taskForm.controls.dueDate.value || '',
               userId: this.taskForm.controls.userId.value || '',
               status:
@@ -72,7 +79,7 @@ export class TaskWebComponent extends TaskBaseComponent {
               ...this.taskForm.value,
               title: this.taskForm.controls.title.value || '',
               description: this.taskForm.controls.description.value || '',
-              creationDate: this.taskForm.controls.creationDate.value || '',
+              creationDate: new Date().toISOString(),
               dueDate: this.taskForm.controls.dueDate.value || '',
               userId: this.taskForm.controls.userId.value || '',
               status:
