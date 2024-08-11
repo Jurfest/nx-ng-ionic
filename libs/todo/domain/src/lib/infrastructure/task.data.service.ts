@@ -10,8 +10,21 @@ const apiUrl = 'http://localhost:3000';
 export class TaskDataService {
   private http = inject(HttpClient);
 
-  loadTaskList(): Observable<Task[]> {
-    return this.http.get<Task[]>(`${apiUrl}/tasks`);
+  // loadTaskList(): Observable<Task[]> {
+  //   return this.http.get<Task[]>(`${apiUrl}/tasks`);
+  // }
+
+  loadTaskList(
+    status?: string,
+    sortOrder: 'asc' | 'desc' = 'asc'
+  ): Observable<Task[]> {
+    let params = new HttpParams()
+      .set('_sort', 'dueDate')
+      .set('_order', sortOrder);
+    if (status) {
+      params = params.set('status', status);
+    }
+    return this.http.get<Task[]>(`${apiUrl}/tasks`, { params });
   }
 
   createTask(client: TaskViewModel): Observable<Task> {
@@ -28,7 +41,6 @@ export class TaskDataService {
 
   // Uncomment if needed
   /*
-        const url = '...';
         const params = new HttpParams().set('param', 'value');
         const headers = new HttpHeaders().set('Accept', 'application/json');
         return this.http.get<Task[]>(url, {params, headers});
