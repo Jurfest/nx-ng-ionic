@@ -2,13 +2,13 @@
 
 Task Connect is a task management application with gamification features that include elements like alchemists and gnomes. It supports both web and mobile platforms using Angular and Ionic.
 
-<img src="./public/images/task-connect.webp" alt="Task Connect" width="100%">
+<img src="./public/images/task-connect.webp" alt="Task Connect" width="75%">
 
 ## Code sharing between Desktop and Mobile applications
 
 ### Task Connect Web and Task Connect Mobile
 
-<!-- TODO: - Add description -->
+Task Connect provides seamless code sharing between web and mobile platforms, with different approaches, while ensuring consistent user experiences across devices.
 
 <table>
   <tr>
@@ -101,8 +101,8 @@ Ensure you have the following installed:
 - **Ionic 8**: For building the mobile application.
 - **Tailwind CSS and Angular Material**: For styling components with a responsive design.
 - **json-server**: For mocking the backend API.
-- **NgRx**:
-- **Nx**:
+- **NgRx**: For state management.
+- **Nx**: For managing the monorepo and ensuring scalable code architecture.
 - **Server-Side Rendering**:
 - **RxJS**: For reactive programming and managing asynchronous data streams.
 
