@@ -49,7 +49,7 @@ export class TaskWebComponent extends TaskBaseComponent {
       .afterClosed()
       .pipe(
         take(1),
-        filter((result) => !!result),
+        filter((result) => !!result && this.taskForm.valid),
         tap(() => {
           if (task) {
             const updatedTask: Task = {

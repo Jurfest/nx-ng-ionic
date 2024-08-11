@@ -16,15 +16,22 @@
       </mat-form-field>
     </div>
 
-    <!-- <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+    <div class="bg-gray-50 p-4 rounded-lg shadow-md">
       <p class="font-semibold text-lg">Task Dates</p>
       <mat-form-field class="w-full">
         <mat-label>Due Date</mat-label>
-        <input matInput [matDatepicker]="dueDatePicker" formControlName="dueDate" />
-        <mat-datepicker-toggle matSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
+        <input
+          matInput
+          [matDatepicker]="dueDatePicker"
+          formControlName="dueDate"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="dueDatePicker"
+        ></mat-datepicker-toggle>
         <mat-datepicker #dueDatePicker></mat-datepicker>
       </mat-form-field>
-    </div> -->
+    </div>
 
     <div class="bg-gray-50 p-4 rounded-lg shadow-md">
       <p class="font-semibold text-lg">Status</p>
@@ -37,6 +44,18 @@
         </mat-select>
       </mat-form-field>
     </div>
+
+    <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+      <p class="font-semibold text-lg">Task Connect</p>
+      <mat-form-field class="w-full">
+        <mat-label>Task Connect</mat-label>
+        <mat-select formControlName="userId">
+          @for (client of [{ name: 'Client Name', id: '1' }]; track $index) {
+          <mat-option [value]="client?.id">{{ client?.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
   </form>
 </mat-dialog-content>
 
@@ -46,7 +65,6 @@
     mat-button
     [mat-dialog-close]="!data.taskForm.invalid"
     cdkFocusInitial
-    class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white"
   >
     {{ data.type === 'create' ? 'Add Task' : 'Update Task' }}
   </button>
