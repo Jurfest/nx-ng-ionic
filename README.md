@@ -1,9 +1,9 @@
 
 # Task Connect
 
-Task Connect is a task management application with gamification features that include elements like alchemists and gnomes. The application allows users to manage tasks, view them by status, and sort them by due date. It supports both web and mobile platforms using Angular and Ionic.
+Task Connect is a task management application with gamification features that include elements like alchemists and gnomes. It supports both web and mobile platforms using Angular and Ionic.
 
-## Features
+## Application Features
 
 - **Client Management**: Create, update, delete, and view tasks.
 - **Task Management**: Create, update, delete, view and filter tasks. Associate tasks with specific clients.
@@ -24,7 +24,7 @@ Ensure you have the following installed:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/task-connect.git
+   git clone https://github.com/jurfest/nx-ng-ionic
    cd task-connect
    ```
 
@@ -52,7 +52,7 @@ Ensure you have the following installed:
    npm start
    ```
 
-   For Mobile (choose iOS or Android dimensions in Chrome Dev Tools device toolbar):
+   For Mobile:
 
    ```bash
    npm run start:mobile
@@ -61,7 +61,7 @@ Ensure you have the following installed:
 5. **Access the Application**
 
    - Web: Open `http://localhost:4200` in your browser.
-   - Mobile: Open `http://localhost:8100` in your browser.
+   - Mobile: Open `http://localhost:8100` in your browser. For a better experience, choose iOS or Android dimensions in Chrome Dev Tools device toolbar - after choose a device, reload the page (f5) to view layout variations.
 
 ## Usage
 
@@ -96,18 +96,7 @@ Ensure you have the following installed:
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Contact
-
-For any inquiries or support, feel free to reach out:
-
-- Email: yourname@example.com
-- GitHub: [yourusername](https://github.com/yourusername)
-
----
-
-Happy Task Managing! 🎉
-
-# Aditional information about this monorepo
+## Aditional information about this monorepo
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
@@ -183,4 +172,3 @@ It will show tasks that you can run with Nx.
 - [Join the community](https://nx.dev/community)
 - [Subscribe to the Nx Youtube Channel](https://www.youtube.com/@nxdevtools)
 - [Follow us on Twitter](https://twitter.com/nxdevtools)
-# nx-ng-ionic

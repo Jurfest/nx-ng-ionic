@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
-    "start:mobile": "nx run todo-mobile:serve",
+    "start:mobile": "nx run todo-mobile:serve --port 8100",
     "start:json-server": "json-server --watch ./server/db.json --port 3000",
     "build": "nx build",
     "build:web-prod": "npx nx run todo-web:build --configuration=production",
