@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>
+  {{ data.type === 'create' ? 'Create Task' : 'Update Task' }}
+</h2>
+
+<mat-dialog-content class="mat-typography space-y-4">
+  <form [formGroup]="data.taskForm" class="space-y-4">
+    <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+      <p class="font-semibold text-lg">Task Details</p>
+      <mat-form-field class="w-full">
+        <mat-label>Task Title</mat-label>
+        <input matInput formControlName="title" />
+      </mat-form-field>
+      <mat-form-field class="w-full">
+        <mat-label>Description</mat-label>
+        <textarea matInput rows="3" formControlName="description"></textarea>
+      </mat-form-field>
+    </div>
+
+    <!-- <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+      <p class="font-semibold text-lg">Task Dates</p>
+      <mat-form-field class="w-full">
+        <mat-label>Due Date</mat-label>
+        <input matInput [matDatepicker]="dueDatePicker" formControlName="dueDate" />
+        <mat-datepicker-toggle matSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #dueDatePicker></mat-datepicker>
+      </mat-form-field>
+    </div> -->
+
+    <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+      <p class="font-semibold text-lg">Status</p>
+      <mat-form-field class="w-full">
+        <mat-label>Task Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option value="pending">Pending</mat-option>
+          <mat-option value="in-progress">In Progress</mat-option>
+          <mat-option value="done">Done</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="pt-4">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button
+    mat-button
+    [mat-dialog-close]="!data.taskForm.invalid"
+    cdkFocusInitial
+    class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white"
+  >
+    {{ data.type === 'create' ? 'Add Task' : 'Update Task' }}
+  </button>
+</mat-dialog-actions>

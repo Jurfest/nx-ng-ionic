@@ -25,7 +25,7 @@
   @let taskList = (taskList$ | async) ?? [];
   <todo-dashboard
     [taskList]="taskList"
+    (openModalEmmiter)="openModal($event)"
     (removeEmmiter)="deleteTask($event)"
-    (updateEmmiter)="updateTask($event)"
   ></todo-dashboard>
 </div>
