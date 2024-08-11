@@ -1,7 +1,25 @@
-
 # Task Connect
 
 Task Connect is a task management application with gamification features that include elements like alchemists and gnomes. It supports both web and mobile platforms using Angular and Ionic.
+
+<img src="./public/images/task-connect.webp" alt="Task Connect" width="100%">
+
+## Code sharing between Desktop and Mobile applications
+
+### Task Connect Web and Task Connect Mobile
+
+<!-- TODO: - Add description -->
+
+<table>
+  <tr>
+    <td>
+      <img src="./public/images/task-connect.webp" alt="Tasks Desktop" width="100%">
+    </td>
+    <td>
+      <img src="./public/images/task-connect.webp" alt="Tasks Mobile" width="100%">
+    </td>
+  </tr>
+</table>
 
 ## Application Features
 
@@ -16,8 +34,8 @@ Task Connect is a task management application with gamification features that in
 Ensure you have the following installed:
 
 - **Node.js** (version ^18.19.1, ^20.11.1, or ^22.0.0)
-<!-- - **Angular CLI** (latest version) -->
-<!-- - **Ionic CLI** (latest version) -->
+  <!-- - **Angular CLI** (latest version) -->
+  <!-- - **Ionic CLI** (latest version) -->
 
 ### Steps
 
@@ -79,24 +97,20 @@ Ensure you have the following installed:
 
 ## Technologies Used
 
-- **Angular**: For building the web application.
-- **Ionic**: For building the mobile application.
-- **Tailwind CSS**: For styling components with a responsive design.
+- **Angular 18**: For building the web application.
+- **Ionic 8**: For building the mobile application.
+- **Tailwind CSS and Angular Material**: For styling components with a responsive design.
 - **json-server**: For mocking the backend API.
+- **NgRx**:
+- **Nx**:
+- **Server-Side Rendering**:
 - **RxJS**: For reactive programming and managing asynchronous data streams.
-
-## Contributing
-
-1. Fork the repository.
-2. Create a new branch with a descriptive name.
-3. Make your changes and commit them with clear messages.
-4. Push your branch and create a Pull Request.
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Aditional information about this monorepo
+## Aditional information about the Nx Ng Ionic monorepo
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
