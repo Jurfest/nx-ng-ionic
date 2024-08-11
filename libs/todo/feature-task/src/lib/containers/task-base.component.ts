@@ -4,6 +4,10 @@ import { ClientFacade, Task, TaskFacade, TaskViewModel } from '@nx-ng-ionic/todo
 /**
  * This base component also will not have its own template, as it will be inherited.
  * It is implemented as a non-abstract class for maximum code reuse.
+ *
+ * Currently, components in feature task are hybrid (ng + ng-ionic),
+ * nevertheless, for easy extension, this architecture that facilitates easily
+ * customization for both desktop or mobile apps is implemented already.
  */
 @Component({
   template: '',

@@ -2,6 +2,4 @@
 
 export * from './lib/task.routes';
 
-export * from './lib/containers/web/task-web.component';
-
-export * from './lib/containers/mobile/task-mobile.component';
+export * from './lib/containers/task/task.component';

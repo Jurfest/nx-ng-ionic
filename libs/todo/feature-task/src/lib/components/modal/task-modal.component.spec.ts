@@ -1,16 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TaskWebComponent } from './task-web.component';
 
-describe('TaskWebComponent', () => {
-  let component: TaskWebComponent;
-  let fixture: ComponentFixture<TaskWebComponent>;
+import { TaskModalComponent } from './task-modal.component';
+
+describe('TaskModalComponent', () => {
+  let component: TaskModalComponent;
+  let fixture: ComponentFixture<TaskModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TaskWebComponent],
+      imports: [TaskModalComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TaskWebComponent);
+    fixture = TestBed.createComponent(TaskModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

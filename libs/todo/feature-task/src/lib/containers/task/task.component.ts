@@ -8,7 +8,7 @@ import { Task, TaskViewModel } from '@nx-ng-ionic/todo/domain';
 import { filter, take, tap } from 'rxjs';
 
 import { DashboardComponent } from '../../components/dashboard/dashboard.component';
-import { TaskModalWebComponent } from '../../components/web/modal/task-modal-web.component';
+import { TaskModalComponent } from '../../components/modal/task-modal.component';
 import { TaskBaseComponent } from '../task-base.component';
 
 @Component({
@@ -21,11 +21,11 @@ import { TaskBaseComponent } from '../task-base.component';
     MatButton,
     MatIcon,
   ],
-  templateUrl: './task-web.component.html',
-  styleUrl: './task-web.component.scss',
+  templateUrl: './task.component.html',
+  styleUrl: './task.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TaskWebComponent extends TaskBaseComponent {
+export class TaskComponent extends TaskBaseComponent {
   private fb = inject(FormBuilder);
   readonly dialog = inject(MatDialog);
 
@@ -44,7 +44,7 @@ export class TaskWebComponent extends TaskBaseComponent {
       this.taskForm.reset();
     }
 
-    const dialogRef = this.dialog.open(TaskModalWebComponent, {
+    const dialogRef = this.dialog.open(TaskModalComponent, {
       data: {
         type: task ? 'update' : 'create',
         taskForm: this.taskForm,
@@ -58,7 +58,6 @@ export class TaskWebComponent extends TaskBaseComponent {
         take(1),
         filter((result) => !!result && this.taskForm.valid),
         tap(() => {
-          console.log('Here');
           if (task) {
             const updatedTask: Task = {
               ...task,
@@ -97,4 +96,4 @@ export class TaskWebComponent extends TaskBaseComponent {
   }
 }
 
-export default TaskWebComponent;
+export default TaskComponent;

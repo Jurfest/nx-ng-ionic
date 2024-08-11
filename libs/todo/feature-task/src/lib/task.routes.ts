@@ -14,7 +14,7 @@ export const TASK_ROUTES: Routes = [
         path: '',
         title: 'Task Connect | Tasks',
         loadComponent: () =>
-          import('./containers/web/task-web.component'),
+          import('./containers/task/task.component'),
       },
       {
         path: '**',

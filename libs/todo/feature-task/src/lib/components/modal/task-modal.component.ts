@@ -36,12 +36,12 @@ export interface DialogData {
     MatDatepickerModule,
   ],
   providers: [provideNativeDateAdapter()],
-  templateUrl: './task-modal-web.component.html',
-  styleUrl: './task-modal-web.component.scss',
+  templateUrl: './task-modal.component.html',
+  styleUrl: './task-modal.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TaskModalWebComponent {
-  readonly dialogRef = inject(MatDialogRef<TaskModalWebComponent>);
+export class TaskModalComponent {
+  readonly dialogRef = inject(MatDialogRef<TaskModalComponent>);
   readonly data = inject<DialogData>(MAT_DIALOG_DATA);
 
   onNoClick(): void {
