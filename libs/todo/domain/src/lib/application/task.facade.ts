@@ -13,8 +13,8 @@ export class TaskFacade {
   taskList$ = this.store.pipe(select(taskFeature.selectAll));
   selectedTask$ = this.store.pipe(select(taskFeature.selectSelected));
 
-  loadTaskList(): void {
-    this.store.dispatch(taskActions.loadTask());
+  loadTaskList(searchTitle: string): void {
+    this.store.dispatch(taskActions.loadTask({ searchTitle }));
   }
 
   addTask(task: TaskViewModel): void {

@@ -13,11 +13,12 @@ export class TaskEffects {
   loadTask$ = createEffect(() =>
     this.actions$.pipe(
       ofType(taskActions.loadTask),
-      switchMap((/* action */) =>
-        this.taskDataService.loadTaskList().pipe(
+      switchMap((action) =>
+        this.taskDataService.loadTaskList(action.searchTitle).pipe(
           map((taskList) => taskActions.loadTaskSuccess({ taskList })),
           catchError((error) => of(taskActions.loadTaskFailure({ error })))
-        ))
+        )
+      )
     )
   );
 

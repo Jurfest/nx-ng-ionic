@@ -28,7 +28,7 @@ export const taskFeature = createFeature({
       error: null,
     })),
     on(taskActions.loadTaskSuccess, (state, action) =>
-      adapter.upsertMany(action.taskList, { ...state, loaded: true })
+      adapter.setAll(action.taskList, { ...state, loaded: true })
     ),
     on(taskActions.loadTaskFailure, (state, action) => ({
       ...state,

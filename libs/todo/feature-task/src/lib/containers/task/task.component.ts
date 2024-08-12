@@ -1,15 +1,34 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
 import { MatButton } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
+import { InputComponent } from '@nx-ng-ionic/shared/ui-components';
 import { Task, TaskViewModel } from '@nx-ng-ionic/todo/domain';
-import { filter, take, tap } from 'rxjs';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  startWith,
+  take,
+  tap,
+} from 'rxjs';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { DashboardComponent } from '../../components/dashboard/dashboard.component';
 import { TaskModalComponent } from '../../components/modal/task-modal.component';
 import { TaskBaseComponent } from '../task-base.component';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatOption } from '@angular/material/core';
 
 @Component({
   selector: 'todo-task-web',
@@ -17,9 +36,14 @@ import { TaskBaseComponent } from '../task-base.component';
   imports: [
     CommonModule,
     DashboardComponent,
-    ReactiveFormsModule,
     MatButton,
     MatIcon,
+    InputComponent,
+    MatExpansionModule,
+    MatLabel,
+    MatOption,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './task.component.html',
   styleUrl: './task.component.scss',
@@ -36,6 +60,27 @@ export class TaskComponent extends TaskBaseComponent {
     status: ['', Validators.required],
     userId: [''],
   });
+
+  searchTasksForm = this.fb.group({
+    searchTitle: [''],
+  });
+
+  constructor() {
+    super();
+    // Load tasks
+    const debounceSearchInput$ =
+      this.searchTasksForm.controls.searchTitle.valueChanges.pipe(
+        debounceTime(300)
+      );
+    debounceSearchInput$
+      .pipe(
+        startWith(''),
+        distinctUntilChanged(),
+        tap((searchTitle) => this.loadTasks(searchTitle || '')),
+        takeUntilDestroyed()
+      )
+      .subscribe();
+  }
 
   openModal(task?: Task): void {
     if (task) {
@@ -93,6 +138,20 @@ export class TaskComponent extends TaskBaseComponent {
         })
       )
       .subscribe();
+  }
+
+  onFilter(): void {
+    // this.filteredTaskList = this.taskList$.pipe(
+    //   map((taskList) =>
+    //     taskList.filter(
+    //       (task) =>
+    //         task.name.toLowerCase().includes(this.searchTerm.toLowerCase()) &&
+    //         (this.selectedStatus === '' ||
+    //           task.status === this.selectedStatus) &&
+    //         (this.selectedUser === '' || task.userId === this.selectedUser)
+    //     )
+    //   )
+    // );
   }
 }
 

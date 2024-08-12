@@ -21,6 +21,7 @@ import {
   errorInterceptor,
   headerInterceptor,
   loadingInterceptor,
+  provideSharedUtilCommon,
 } from '@nx-ng-ionic/shared/util-common';
 import { provideTodoDomain } from '@nx-ng-ionic/todo/domain';
 import { quicklinkProviders, QuicklinkStrategy } from 'ngx-quicklink';
@@ -51,5 +52,6 @@ export const appConfig: ApplicationConfig = {
     provideEffects([]),
     ...(isDevMode() ? [provideStoreDevtools()] : []),
     provideTodoDomain(),
+    provideSharedUtilCommon(),
   ],
 };

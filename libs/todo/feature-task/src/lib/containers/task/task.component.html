@@ -1,5 +1,5 @@
 <div class="container mx-auto p-6 min-h-screen space-y-6">
-  <!-- TODO: - Create banner/header molecule component in shared UI components -->
+  <!-- Header/Banner -->
   <header class="flex justify-between mb-6">
     <h1
       class="text-4xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent inline-block"
@@ -23,6 +23,56 @@
     </div>
   </header>
 
+  <!-- Search and Filters -->
+  <div class="mb-6 space-y-4">
+    <form
+      [formGroup]="searchTasksForm"
+      class="search-form md:w-auto max-xs:w-auto"
+    >
+      <components-web-input
+        formControlName="searchTitle"
+        id="search"
+        data-testid="search-input"
+        placeholder="Search by task name"
+      ></components-web-input>
+    </form>
+
+    <!-- Expansion Panel for Additional Filters -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> More Filters </mat-panel-title>
+        <mat-panel-description>
+          Filter tasks by status or user
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <!-- Filter by Status -->
+      <!-- <mat-form-field appearance="fill" class="w-full mb-4">
+        <mat-label>Filter by Status</mat-label>
+        <mat-select [(ngModel)]="selectedStatus" (selectionChange)="onFilter()">
+          <mat-option value="">All</mat-option>
+          <mat-option value="pending">Pending</mat-option>
+          <mat-option value="in-progress">In Progress</mat-option>
+          <mat-option value="done">Done</mat-option>
+        </mat-select>
+      </mat-form-field> -->
+
+      <!-- Filter by User -->
+      <!-- <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Filter by User</mat-label>
+        <mat-select [(ngModel)]="selectedClient" (selectionChange)="onFilter()">
+          <mat-option
+            *ngFor="let user of [{ name: 'name', id: '1' }]"
+            [value]="user?.id"
+          >
+            {{ user?.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+    </mat-expansion-panel>
+  </div>
+
+  <!-- Task List -->
   @let taskList = (taskList$ | async) ?? [];
   <todo-dashboard
     [taskList]="taskList"

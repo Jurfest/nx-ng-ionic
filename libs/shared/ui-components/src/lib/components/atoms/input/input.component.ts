@@ -69,7 +69,7 @@ type OnTouch = () => void;
 export class InputComponent {
   inputType = input<InputType>(InputType.text);
   placeholder = input<string>('');
-  label = input<string>('Pesquisar');
+  label = input<string>('Search');
   enableLoading = input<boolean>(true);
 
   private loadingFacade = inject(LoadingFacade);

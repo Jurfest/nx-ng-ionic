@@ -1,5 +1,10 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { ClientFacade, Task, TaskFacade, TaskViewModel } from '@nx-ng-ionic/todo/domain';
+import { Component, inject } from '@angular/core';
+import {
+  ClientFacade,
+  Task,
+  TaskFacade,
+  TaskViewModel,
+} from '@nx-ng-ionic/todo/domain';
 
 /**
  * This base component also will not have its own template, as it will be inherited.
@@ -12,20 +17,22 @@ import { ClientFacade, Task, TaskFacade, TaskViewModel } from '@nx-ng-ionic/todo
 @Component({
   template: '',
 })
-export class TaskBaseComponent implements OnInit {
+export class TaskBaseComponent {
   protected taskFacade = inject(TaskFacade);
   protected clientFacade = inject(ClientFacade);
 
   taskList$ = this.taskFacade.taskList$;
   clientList$ = this.clientFacade.clientList$;
 
-  ngOnInit(): void {
-    this.loadTasks();
+  constructor() {
+    // NOTE: - Load tasks in subclass
+
+    // Load clients
     this.loadClients();
   }
 
-  protected loadTasks(): void {
-    this.taskFacade.loadTaskList();
+  protected loadTasks(searchTitle: string): void {
+    this.taskFacade.loadTaskList(searchTitle);
   }
 
   protected loadClients(): void {
