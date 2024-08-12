@@ -21,9 +21,10 @@ export class TaskDataService {
       .set('_sort', 'dueDate')
       .set('_order', sortOrder);
 
-    if (selectedStatus) {
-      params = params.set('status', selectedStatus);
-    }
+    // NOTE: - Filter done i client side to not over add params to json-server
+    // if (selectedStatus) {
+    //   params = params.set('status', selectedStatus);
+    // }
     if (selectedClient) {
       params = params.set('userId', selectedClient);
     }
@@ -32,13 +33,26 @@ export class TaskDataService {
     //   params = params.set('title_like', title);
     // }
 
+    console.log('params: ', params)
+
     return this.http.get<Task[]>(`${apiUrl}/tasks`, { params }).pipe(
       // Filter by title
       map((items) =>
-        items.filter((item) =>
-          item.title.toLowerCase().includes(searchTitle.toLowerCase())
+        items.filter(
+          (item) =>
+            item.title.toLowerCase().includes(searchTitle.toLowerCase()) &&
+            item.status.toLowerCase().includes(selectedStatus.toLowerCase())
         )
       )
+      //
+      // map((res) =>
+      //   res.filter(
+      //     (game) =>
+      //       game.title.toLowerCase().includes(searchParam.toLowerCase()) ||
+      //       game.year.includes(searchParam) ||
+      //       game.dateOfCompletion.includes(searchParam)
+      //   )
+      // ),
     );
   }
 
