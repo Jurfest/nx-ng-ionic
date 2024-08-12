@@ -15,10 +15,10 @@ Task Connect provides seamless code sharing between web and mobile platforms, wi
 <table>
   <tr>
     <td>
-      <img src="./public/images/task-connect.webp" alt="Tasks Desktop" width="100%">
+      <img src="./public/images/desktop-task-connect.png" alt="Tasks Desktop" width="100%">
     </td>
     <td>
-      <img src="./public/images/task-connect.webp" alt="Tasks Mobile" width="100%">
+      <img src="./public/images/mobile-task-connect.png" alt="Tasks Mobile" width="100%">
     </td>
   </tr>
 </table>
