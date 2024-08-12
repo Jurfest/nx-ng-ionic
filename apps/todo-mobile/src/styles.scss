@@ -39,3 +39,16 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+/**
+ * Angular Material
+ * https://stackoverflow.com/questions/74500132/angular-15-material-bug-input-on-focus-when-using-tailwindcss
+ */
+.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field.mat-mdc-form-field
+  .mdc-notched-outline__notch {
+  border-right-style: hidden;
+}
+
+.mat-mdc-input-element {
+  box-shadow: none !important;
+}
