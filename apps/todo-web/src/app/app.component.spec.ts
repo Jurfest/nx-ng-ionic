@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { By } from '@angular/platform-browser';
 
 describe('AppComponent', () => {
   beforeEach(async () => {

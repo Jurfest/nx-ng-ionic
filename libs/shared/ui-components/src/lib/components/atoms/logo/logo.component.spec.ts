@@ -22,14 +22,15 @@ describe('LogoComponent', () => {
   });
 
   it('should display the correct image source', () => {
-    const imageSrcWithoutDot = '/assets/images/rick-morty-logo.svg';
+    const imageSrcWithoutDot =
+      'http://localhost/assets/images/task-connect-logo.png';
     fixture.detectChanges();
     const imgElement = fixture.debugElement.query(By.css('img')).nativeElement;
     expect(imgElement.src).toContain(imageSrcWithoutDot);
   });
 
   it('should display the correct alt text', () => {
-    const altText = 'Rick and Morty Logo';
+    const altText = 'Task Connect Logo';
     fixture.detectChanges();
     const imgElement = fixture.debugElement.query(By.css('img')).nativeElement;
     expect(imgElement.alt).toBe(altText);

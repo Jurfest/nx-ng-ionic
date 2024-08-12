@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { LoadingFacade } from '@toon-galaxy/shared/util-common';
+import { LoadingFacade } from '@nx-ng-ionic/shared/util-common';
 import { of } from 'rxjs';
 
 import { InputComponent, InputType } from './input.component';
@@ -34,7 +34,7 @@ describe('InputComponent', () => {
   it('should initialize with default values', () => {
     expect(component.inputType()).toEqual(InputType.text);
     expect(component.placeholder()).toEqual('');
-    expect(component.label()).toEqual('Pesquisar');
+    expect(component.label()).toEqual('Search');
     expect(component.enableLoading()).toEqual(true);
   });
 

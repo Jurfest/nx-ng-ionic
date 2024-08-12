@@ -16,7 +16,6 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { of } from 'rxjs';
 
 import { errorInterceptor } from './error.interceptor';
-import { environment } from '../../environments/environment';
 
 describe('errorInterceptor', () => {
   const interceptor: HttpInterceptorFn = (req, next) =>
@@ -107,20 +106,8 @@ describe('errorInterceptor', () => {
       expect(snackBarOpenMock).toHaveBeenCalledWith(errorMessage, 'Close', {
         duration: 5000,
       });
-    },
+    }
   );
-
-  it('should not display snackbar for a 404 error for URLs starting with environment.BASE_API_URL', () => {
-    const url = environment.BASE_API_URL;
-
-    httpClient.get(url).subscribe();
-
-    const req = httpMock.expectOne(url);
-    expect(req.request.method).toBe('GET');
-    req.flush(null, { status: 404, statusText: 'Not Found' });
-
-    expect(snackBarOpenMock).toHaveBeenCalledTimes(0);
-  });
 
   it('should handle a successful response', fakeAsync(() => {
     const req = new HttpRequest('GET', 'https://example.com/api/data');

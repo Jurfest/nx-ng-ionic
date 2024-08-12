@@ -15,7 +15,6 @@ describe('ToggleButtonComponent', () => {
 
     fixture = TestBed.createComponent(ToggleButtonComponent);
     component = fixture.componentInstance;
-    fixture.componentRef.setInput('totalFavoriteCharacters', 3);
     fixture.componentRef.setInput('isHandset', false);
     fixture.componentRef.setInput('activeTab', TabName.Clients);
     fixture.detectChanges();
