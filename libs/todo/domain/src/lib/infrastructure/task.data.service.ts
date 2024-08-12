@@ -1,6 +1,7 @@
-import { Injectable, inject } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { map, Observable, of, tap } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { map, Observable } from 'rxjs';
+
 import { Task, TaskViewModel } from '../entities/task';
 
 // TODO: - Environments
@@ -24,20 +25,20 @@ export class TaskDataService {
   // }
 
   loadTaskList(
-    title = '',
-    status?: string,
-    sortOrder: 'asc' | 'desc' = 'asc',
-    userId?: string
+    searchTitle = '',
+    selectedStatus = '',
+    selectedClient = '',
+    sortOrder: 'asc' | 'desc' = 'asc'
   ): Observable<Task[]> {
     let params = new HttpParams()
       .set('_sort', 'dueDate')
       .set('_order', sortOrder);
 
-    if (status) {
-      params = params.set('status', status);
+    if (selectedStatus) {
+      params = params.set('status', selectedStatus);
     }
-    if (userId) {
-      params = params.set('userId', userId);
+    if (selectedClient) {
+      params = params.set('userId', selectedClient);
     }
     // NOTE: - Is not working
     // if (title) {
@@ -49,7 +50,7 @@ export class TaskDataService {
       .pipe(
         map((items) =>
           items.filter((item) =>
-            item.title.toLowerCase().includes(title.toLowerCase())
+            item.title.toLowerCase().includes(searchTitle.toLowerCase())
           )
         )
       );
@@ -66,12 +67,4 @@ export class TaskDataService {
   deleteTask(id: string): Observable<void> {
     return this.http.delete<void>(`${apiUrl}/tasks/${id}`);
   }
-
-  // Uncomment if needed
-  /*
-        const params = new HttpParams().set('param', 'value');
-        const headers = new HttpHeaders().set('Accept', 'application/json');
-        return this.http.get<Task[]>(url, {params, headers});
-        */
-  // }
 }

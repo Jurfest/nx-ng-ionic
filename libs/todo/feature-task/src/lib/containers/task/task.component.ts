@@ -17,6 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { InputComponent } from '@nx-ng-ionic/shared/ui-components';
 import { Task, TaskViewModel } from '@nx-ng-ionic/todo/domain';
 import {
+  combineLatest,
   debounceTime,
   distinctUntilChanged,
   filter,
@@ -70,15 +71,34 @@ export class TaskComponent extends TaskBaseComponent {
   constructor() {
     super();
     // Load tasks
-    const debounceSearchInput$ =
+    const searchTitle$ =
       this.searchTasksForm.controls.searchTitle.valueChanges.pipe(
-        debounceTime(300)
-      );
-    debounceSearchInput$
-      .pipe(
         startWith(''),
-        distinctUntilChanged(),
-        tap((searchTitle) => this.loadTasks(searchTitle || '')),
+        debounceTime(300),
+        distinctUntilChanged()
+      );
+
+    const selectedStatus$ =
+      this.searchTasksForm.controls.selectedStatus.valueChanges.pipe(
+        startWith(''),
+        distinctUntilChanged()
+      );
+
+    const selectedClient$ =
+      this.searchTasksForm.controls.selectedClient.valueChanges.pipe(
+        startWith(''),
+        distinctUntilChanged()
+      );
+
+    combineLatest([searchTitle$, selectedStatus$, selectedClient$])
+      .pipe(
+        tap(([searchTitle, selectedStatus, selectedClient]) => {
+          this.loadTasks(
+            searchTitle || '',
+            selectedStatus || '',
+            selectedClient || ''
+          );
+        }),
         takeUntilDestroyed()
       )
       .subscribe();

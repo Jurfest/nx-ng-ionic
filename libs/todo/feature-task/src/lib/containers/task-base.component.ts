@@ -31,8 +31,12 @@ export class TaskBaseComponent {
     this.loadClients();
   }
 
-  protected loadTasks(searchTitle: string): void {
-    this.taskFacade.loadTaskList(searchTitle);
+  protected loadTasks(
+    searchTitle: string,
+    selectedStatus: string,
+    selectedClient: string
+  ): void {
+    this.taskFacade.loadTaskList(searchTitle, selectedStatus, selectedClient);
   }
 
   protected loadClients(): void {

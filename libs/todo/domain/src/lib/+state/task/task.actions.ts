@@ -5,7 +5,11 @@ import { Task, TaskViewModel } from '../../entities/task';
 export const taskActions = createActionGroup({
   source: 'Task',
   events: {
-    loadTask: props<{ searchTitle: string }>(),
+    loadTask: props<{
+      searchTitle: string;
+      selectedStatus: string;
+      selectedClient: string;
+    }>(),
     loadTaskSuccess: props<{ taskList: Task[] }>(),
     loadTaskFailure: props<{ error: unknown }>(),
     addTask: props<{ task: TaskViewModel }>(),
