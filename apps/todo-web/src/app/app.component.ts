@@ -9,6 +9,4 @@ import { NavbarComponent } from '@nx-ng-ionic/shared/ui-components';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'todo-web';
-}
+export class AppComponent {}
