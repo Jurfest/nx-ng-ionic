@@ -60,12 +60,12 @@
         <mat-form-field appearance="fill" class="w-full mb-4">
           <mat-label>Filter by User</mat-label>
           <mat-select
-            formControlName="selectedStatus"
+            formControlName="selectedClient"
             (selectionChange)="onFilter()"
           >
             <mat-option value="">All</mat-option>
             @for (client of clientList$ | async; track client.id) {
-            <mat-option [value]="client?.id">
+            <mat-option [value]="client.id">
               {{ client?.name }}
             </mat-option>
             }

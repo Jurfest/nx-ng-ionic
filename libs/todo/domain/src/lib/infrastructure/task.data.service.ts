@@ -11,19 +11,6 @@ const apiUrl = 'http://localhost:3000';
 export class TaskDataService {
   private http = inject(HttpClient);
 
-  // loadTaskList(
-  //   status?: string,
-  //   sortOrder: 'asc' | 'desc' = 'asc'
-  // ): Observable<Task[]> {
-  //   let params = new HttpParams()
-  //     .set('_sort', 'dueDate')
-  //     .set('_order', sortOrder);
-  //   if (status) {
-  //     params = params.set('status', status);
-  //   }
-  //   return this.http.get<Task[]>(`${apiUrl}/tasks`, { params });
-  // }
-
   loadTaskList(
     searchTitle = '',
     selectedStatus = '',
@@ -40,20 +27,19 @@ export class TaskDataService {
     if (selectedClient) {
       params = params.set('userId', selectedClient);
     }
-    // NOTE: - Is not working
+    // NOTE: - Is not working - this filter is made in client side
     // if (title) {
     //   params = params.set('title_like', title);
     // }
 
-    return this.http
-      .get<Task[]>(`${apiUrl}/tasks`, { params })
-      .pipe(
-        map((items) =>
-          items.filter((item) =>
-            item.title.toLowerCase().includes(searchTitle.toLowerCase())
-          )
+    return this.http.get<Task[]>(`${apiUrl}/tasks`, { params }).pipe(
+      // Filter by title
+      map((items) =>
+        items.filter((item) =>
+          item.title.toLowerCase().includes(searchTitle.toLowerCase())
         )
-      );
+      )
+    );
   }
 
   createTask(client: TaskViewModel): Observable<Task> {
