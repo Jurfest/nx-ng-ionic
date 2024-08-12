@@ -83,6 +83,20 @@ Ensure you have the following installed:
    - Web: Open `http://localhost:4200` in your browser.
    - Mobile: Open `http://localhost:8100` in your browser. For a better experience, choose iOS or Android dimensions in Chrome Dev Tools device toolbar - after choose a device, reload the page (f5) to view layout variations.
 
+6. **Unit tests**
+
+    For all projects:
+
+    ```bash
+    npm run test:all
+    ```
+
+    For a specific project, e.g., shared-util-common lib:
+
+    ```bash
+    npx nx run shared-util-common:test
+    ```
+
 ## Usage
 
 ### Web Version
