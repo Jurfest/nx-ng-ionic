@@ -1,16 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
   FormBuilder,
   FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-
-import { MatButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
-import { MatIcon } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { InputComponent } from '@nx-ng-ionic/shared/ui-components';
 import { Task, TaskViewModel } from '@nx-ng-ionic/todo/domain';
 import {
@@ -21,14 +24,10 @@ import {
   take,
   tap,
 } from 'rxjs';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { DashboardComponent } from '../../components/dashboard/dashboard.component';
 import { TaskModalComponent } from '../../components/modal/task-modal.component';
 import { TaskBaseComponent } from '../task-base.component';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { MatOption } from '@angular/material/core';
 
 @Component({
   selector: 'todo-task-web',
@@ -36,12 +35,13 @@ import { MatOption } from '@angular/material/core';
   imports: [
     CommonModule,
     DashboardComponent,
-    MatButton,
-    MatIcon,
     InputComponent,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSelectModule,
     MatExpansionModule,
-    MatLabel,
-    MatOption,
+    MatIconModule,
     FormsModule,
     ReactiveFormsModule,
   ],
@@ -63,6 +63,8 @@ export class TaskComponent extends TaskBaseComponent {
 
   searchTasksForm = this.fb.group({
     searchTitle: [''],
+    selectedStatus: [''],
+    selectedClient: [''],
   });
 
   constructor() {

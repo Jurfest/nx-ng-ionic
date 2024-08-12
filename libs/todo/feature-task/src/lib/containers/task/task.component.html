@@ -35,41 +35,44 @@
         data-testid="search-input"
         placeholder="Search by task name"
       ></components-web-input>
-    </form>
 
-    <!-- Expansion Panel for Additional Filters -->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title> More Filters </mat-panel-title>
-        <mat-panel-description>
-          Filter tasks by status or user
-        </mat-panel-description>
-      </mat-expansion-panel-header>
+      <!-- Expansion Panel for Additional Filters -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> More Filters </mat-panel-title>
+          <mat-panel-description>
+            Filter tasks by status or user
+          </mat-panel-description>
+        </mat-expansion-panel-header>
 
-      <!-- Filter by Status -->
-      <!-- <mat-form-field appearance="fill" class="w-full mb-4">
-        <mat-label>Filter by Status</mat-label>
-        <mat-select [(ngModel)]="selectedStatus" (selectionChange)="onFilter()">
-          <mat-option value="">All</mat-option>
-          <mat-option value="pending">Pending</mat-option>
-          <mat-option value="in-progress">In Progress</mat-option>
-          <mat-option value="done">Done</mat-option>
-        </mat-select>
-      </mat-form-field> -->
+        <!-- Filter by Status -->
+        <mat-form-field appearance="fill" class="w-full mb-4">
+          <mat-label>Task Status</mat-label>
+          <mat-select formControlName="selectedStatus">
+            <mat-option value="">All</mat-option>
+            <mat-option value="pending">Pending</mat-option>
+            <mat-option value="in-progress">In Progress</mat-option>
+            <mat-option value="done">Done</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-      <!-- Filter by User -->
-      <!-- <mat-form-field appearance="fill" class="w-full">
-        <mat-label>Filter by User</mat-label>
-        <mat-select [(ngModel)]="selectedClient" (selectionChange)="onFilter()">
-          <mat-option
-            *ngFor="let user of [{ name: 'name', id: '1' }]"
-            [value]="user?.id"
+        <!-- Filter by User -->
+        <mat-form-field appearance="fill" class="w-full mb-4">
+          <mat-label>Filter by User</mat-label>
+          <mat-select
+            formControlName="selectedStatus"
+            (selectionChange)="onFilter()"
           >
-            {{ user?.name }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field> -->
-    </mat-expansion-panel>
+            <mat-option value="">All</mat-option>
+            @for (client of clientList$ | async; track client.id) {
+            <mat-option [value]="client?.id">
+              {{ client?.name }}
+            </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </mat-expansion-panel>
+    </form>
   </div>
 
   <!-- Task List -->
